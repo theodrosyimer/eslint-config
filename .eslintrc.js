@@ -1,4 +1,4 @@
-module.exports = {
+qmodule.exports = {
   extends: ['airbnb-base', 'prettier'],
   parser: '@babel/eslint-parser',
   parserOptions: {
@@ -110,6 +110,9 @@ module.exports = {
       },
     ],
     radix: 0,
+    'restrict-template-expressions': {
+      'allowAny': true
+    },
     'sort-imports': [
       'error',
       {
