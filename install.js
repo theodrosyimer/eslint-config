@@ -7,14 +7,13 @@ import { inspect, formatWithOptions } from 'util'
 
 const TARGET = process.env.npm_lifecycle_event
 const __dirname = dirname(fileURLToPath(import.meta.url))
-// extract devDependencies from package.json
+
 const jsonPath = resolve(__dirname, 'package.json')
 
 const fileToObj = pathToFile => {
   const rawPacket = readFileSync(pathToFile)
   // @ts-ignore
   const toJS = JSON.parse(rawPacket) // ?
-  // const toJson = JSON.stringify(toJS) // ?
 
   return toJS
 }
@@ -56,7 +55,7 @@ if (TARGET === 'preinstall') {
       formatWithOptions(
         { colors: true },
         '%o',
-        'INFO: Run the command below to install all PeerDependencies'
+        'INFO: Run the command below to install all PeerDependencies with your preferred package manager'
       )
     )
 
