@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   extends: ['airbnb-base', 'prettier'],
   parser: '@babel/eslint-parser',
   parserOptions: {
