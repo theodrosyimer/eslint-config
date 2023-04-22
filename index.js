@@ -1,3 +1,3 @@
-import eslintrc from './.eslintrc.js'
+import eslintrc from './.eslintrc.cjs'
 
 export default eslintrc
