@@ -18,7 +18,7 @@ say hello
 ## Install
 
 ```sh
-npm i -D eslint-config-base
+npm i -D @thyi/eslint-config
 ```
 
 ## Goals
