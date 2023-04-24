@@ -1,6 +1,6 @@
 {
   "name": "@thyi/eslint-config",
-  "version": "1.12.3",
+  "version": "1.12.6",
   "description": "ESLint and Prettier Config for JavaScript and Typescript",
   "keywords": [
     "javascript",
@@ -18,7 +18,6 @@
     "root": true
   },
   "publishConfig": {
-    "registry": "https://registry.npmjs.org/",
     "access": "public",
     "tag": "latest"
   },
