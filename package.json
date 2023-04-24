@@ -17,11 +17,6 @@
   "eslintConfig": {
     "root": true
   },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/",
-    "access": "public",
-    "tag": "latest"
-  },
   "scripts": {
     "lint": "eslint . --fix",
     "lint:show": "eslint . --color",
