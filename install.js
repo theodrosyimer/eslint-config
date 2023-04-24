@@ -1,17 +1,15 @@
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable guard-for-in */
-import { readFileSync, open } from 'fs'
-import { resolve, dirname } from 'path'
-import {fileURLToPath} from 'url'
-import { inspect, formatWithOptions } from 'util'
+const fs = require('fs')
+const path = require('path')
+const util = require('util')
 
 const TARGET = process.env.npm_lifecycle_event
-const __dirname = dirname(fileURLToPath(import.meta.url))
 
-const jsonPath = resolve(__dirname, 'package.json')
+const jsonPath = path.resolve(__dirname, 'package.json')
 
 const fileToObj = pathToFile => {
-  const rawPacket = readFileSync(pathToFile)
+  const rawPacket = fs.readFileSync(pathToFile)
   // @ts-ignore
   const toJS = JSON.parse(rawPacket) // ?
 
@@ -19,7 +17,7 @@ const fileToObj = pathToFile => {
 }
 if (TARGET === 'preinstall') {
   // Read the file
-  open(jsonPath, 'r+', err => {
+  fs.open(jsonPath, 'r+', err => {
     let cmd = ''
     let arrDeps = []
     if (err) {
@@ -50,9 +48,9 @@ if (TARGET === 'preinstall') {
     ` // ?
 
     // Colors the `console.log` output in red
-    inspect.styles.string = 'red'
+    util.inspect.styles.string = 'red'
     console.log(
-      formatWithOptions(
+      util.formatWithOptions(
         { colors: true },
         '%o',
         'INFO: Run the command below to install all PeerDependencies with your preferred package manager'
@@ -60,7 +58,7 @@ if (TARGET === 'preinstall') {
     )
 
     // Colors the `console.log` output in cyan
-    inspect.styles.string = 'cyan'
-    console.log(formatWithOptions({ colors: true }, '%o', `${cmd}`))
+    util.inspect.styles.string = 'cyan'
+    console.log(util.formatWithOptions({ colors: true }, '%o', `${cmd}`))
   })
 }
