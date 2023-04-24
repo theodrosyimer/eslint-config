@@ -32,9 +32,9 @@ jobs:
 
       - name: Local ENV files
         env:
-          ENV_FILE: ${{ secrets.ENV_FILE }}
+          MY_ENV_FILE: ${{ secrets.ENV_FILE }}
         run: |
-          echo $ENV_FILE | base64 --decode > .env
+          echo "$MY_ENV_FILE" | base64 --decode > .env
 
       - name: Git User
         run: |
@@ -42,15 +42,15 @@ jobs:
           git config user.email "${GITHUB_MAIL_USERNAME_ID}@users.noreply.github.com"
 
       - name: Set NPM TOKEN
-        run: npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
 
       - name: Release & Publish
-        run: pnpm release --ci
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: pnpm release --ci
 
       - name: End
         run: echo "Done!"
