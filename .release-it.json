@@ -7,7 +7,10 @@
     "before:init": [
       "git pull"
     ],
-    "after:bump": "npx auto-changelog -p"
+    "after:bump": [
+      "npx auto-changelog -p",
+      "npm pkg set version ${version}"
+    ]
   },
   "github": {
     "release": true
