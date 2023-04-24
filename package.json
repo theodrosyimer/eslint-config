@@ -1,6 +1,6 @@
 {
   "name": "@thyi/eslint-config",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "ESLint and Prettier Config for JavaScript and Typescript",
   "keywords": [
     "javascript",
@@ -12,7 +12,6 @@
     "config"
   ],
   "main": "index.js",
-  "type": "module",
   "author": "Theodros Yimer",
   "license": "MIT",
   "eslintConfig": {
