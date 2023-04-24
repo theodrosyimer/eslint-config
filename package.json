@@ -1,6 +1,6 @@
 {
   "name": "@thyi/eslint-config",
-  "version": "1.12.8",
+  "version": "1.13.1",
   "description": "ESLint and Prettier Config for JavaScript and Typescript",
   "keywords": [
     "javascript",
@@ -25,7 +25,6 @@
     "lint": "eslint . --fix",
     "lint:show": "eslint . --color",
     "preinstall": "node ./install.js",
-    "publish": "npm publish",
     "release": "release-it"
   },
   "devDependencies": {
