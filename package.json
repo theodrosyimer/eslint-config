@@ -26,7 +26,7 @@
     "lint": "eslint . --color",
     "lint:fix": "eslint . --fix",
     "preinstall": "node ./install.js",
-    "publish": "npm publish"
+    "release": "release-it"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.21.3",
@@ -42,6 +42,10 @@
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-prettier": "^4.2.1",
     "prettier": "^2.8.7",
+    "release-it": "^15.10.1",
     "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3"
   }
 }
