@@ -8,8 +8,7 @@
       "git pull"
     ],
     "after:bump": [
-      "npx auto-changelog -p",
-      "npm pkg set version=${version}"
+      "npx auto-changelog -p"
     ]
   },
   "github": {
