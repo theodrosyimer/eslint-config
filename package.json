@@ -1,6 +1,6 @@
 {
   "name": "@thyi/eslint-config",
-  "version": "1.9.0",
+  "version": "1.10.1",
   "description": "ESLint and Prettier Config for JavaScript and Typescript",
   "keywords": [
     "javascript",
