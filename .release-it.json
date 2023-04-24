@@ -9,7 +9,7 @@
     ],
     "after:bump": [
       "npx auto-changelog -p",
-      "npm pkg set version ${version}"
+      "npm pkg set version=${version}"
     ]
   },
   "github": {
