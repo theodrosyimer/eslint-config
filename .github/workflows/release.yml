@@ -32,8 +32,8 @@ jobs:
 
       - name: Git User
         run: |
-          git config user.name "${GH_USERNAME}"
-          git config user.email "${GH_MAIL_USERNAME_ID}@users.noreply.github.com"
+          git config --global user.name "${GH_USERNAME}"
+          git config --global user.email "${GH_MAIL_USERNAME_ID}@users.noreply.github.com"
 
       - name: Set NPM TOKEN
         env:
