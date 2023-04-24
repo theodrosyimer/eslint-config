@@ -30,16 +30,10 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Local ENV files
-        env:
-          MY_ENV_FILE: ${{ secrets.ENV_FILE }}
-        run: |
-          echo "$MY_ENV_FILE" | base64 --decode > .env
-
       - name: Git User
         run: |
-          git config user.name "${GITHUB_USERNAME}"
-          git config user.email "${GITHUB_MAIL_USERNAME_ID}@users.noreply.github.com"
+          git config user.name "${GH_USERNAME}"
+          git config user.email "${GH_MAIL_USERNAME_ID}@users.noreply.github.com"
 
       - name: Set NPM TOKEN
         env:
