@@ -23,8 +23,8 @@
     "tag": "latest"
   },
   "scripts": {
-    "lint": "eslint . --color",
-    "lint:fix": "eslint . --fix",
+    "lint": "eslint . --fix",
+    "lint:show": "eslint . --color",
     "preinstall": "node ./install.js",
     "release": "release-it"
   },
