@@ -1,15 +1,12 @@
 # eslint-config
 
-## Table of contents
-
-<details open><summary>General</summary>
-
-- [Prerequisites](#prerequisites)
-- [Goals](#goals)
-- [Usage](#usage)
-- [Documentation, Validation and IntelliSense](#documentation-validation-and-intellisense)
-- [Contribute](#contribute)
-  </details>
+- [What it does](#what-it-does)
+- [Install](#install)
+- [Settings](#settings)
+  - [Prettier Rules](#prettier-rules)
+- [With TypeScript](#with-typescript)
+- [With VS Code](#with-vs-code)
+- [With WSL](#with-wsl)
 
 Based on: [wesbos/eslint-config-wesbos: No-Sweat™ Eslint and Prettier Setup - with or without VS Code](https://github.com/wesbos/eslint-config-wesbos).
 
