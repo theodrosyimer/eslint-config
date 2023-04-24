@@ -44,7 +44,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: pnpm release --ci
+        run: pnpm release --ci && pnpm publish
 
       - name: End
         run: echo "Done!"

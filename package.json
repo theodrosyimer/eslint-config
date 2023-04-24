@@ -26,6 +26,7 @@
     "lint": "eslint . --fix",
     "lint:show": "eslint . --color",
     "preinstall": "node ./install.js",
+    "publish": "npm publish",
     "release": "release-it"
   },
   "devDependencies": {
