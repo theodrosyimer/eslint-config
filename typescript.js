@@ -26,6 +26,7 @@ module.exports = {
         checksVoidReturn: false,
       },
     ],
+    '@typescript-eslint/comma-dangle': ['off'],
     '@typescript-eslint/no-explicit-any': 'off',
     'no-redeclare': 'off',
     '@typescript-eslint/no-redeclare': [

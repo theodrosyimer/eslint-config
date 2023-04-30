@@ -182,6 +182,5 @@ module.exports = {
         },
       },
     ],
-    '@typescript-eslint/comma-dangle': ['off'],
   },
 }

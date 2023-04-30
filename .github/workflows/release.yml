@@ -16,7 +16,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Git User
+      - name: Set Git User
         run: |
           git config user.name "${{ secrets.GH_USERNAME }}"
           git config user.email "${{ secrets.GH_MAIL_USERNAME_ID }}@users.noreply.github.com"
