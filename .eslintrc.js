@@ -38,22 +38,22 @@ module.exports = {
         trailingComma: 'es5',
       },
     ],
-    'arrow-body-style': [2, 'as-needed'],
-    'consistent-return': 0,
-    'func-names': [2, 'as-needed', { generators: 'never' }],
+    'arrow-body-style': ['error', 'as-needed'],
+    'consistent-return': 'off',
+    'func-names': ['error', 'as-needed', { generators: 'never' }],
     'newline-per-chained-call': ['error', { ignoreChainWithDepth: 2 }],
-    'no-alert': 0,
-    'no-async-promise-executor': 2,
-    'no-await-in-loop': 0,
-    'no-console': 0,
-    'no-debugger': 0,
-    'no-empty-function': ['error',{allow: ['constructors']}],
-    'no-multiple-empty-lines': ['error',{max: 1}],
-    'no-plusplus': 0,
-    'no-restricted-syntax': [2, 'ForInStatement', 'LabeledStatement', 'WithStatement'],
+    'no-alert': 'off',
+    'no-async-promise-executor': 'error',
+    'no-await-in-loop': 'error',
+    'no-console': 'off',
+    'no-debugger': 'off',
+    'no-empty-function': ['error',{ allow: ['constructors'] }],
+    'no-multiple-empty-lines': ['error', { max: 1 }],
+    'no-plusplus': 'off',
+    'no-restricted-syntax': ['error', 'ForInStatement', 'LabeledStatement', 'WithStatement'],
     'no-return-assign': ['error', 'except-parens'],
     'no-unused-vars': [
-      1,
+      'error',
       {
         args: 'none',
         ignoreRestSiblings: true,
@@ -62,28 +62,28 @@ module.exports = {
     ],
 
     'no-param-reassign': [
-      2,
+      'error',
       {
         props: false,
       },
     ],
     'no-shadow': [
-      2,
+      'error',
       {
         hoist: 'never',
         allow: ['resolve', 'reject', 'done', 'next', 'err', 'error'],
       },
     ],
     'no-useless-constructor': 'off',
-    'no-undef': 0,
-    'no-underscore-dangle': 0,
+    'no-undef': 'off',
+    'no-underscore-dangle': 'off',
     'no-use-before-define': [
       'error',
       { functions: false, classes: true, variables: true },
     ],
     'no-var': 'error',
     // 'no-unused-expressions': [
-    //   2,
+    //   'error',
     //   {
     //     'allowTaggedTemplates': true
     //   }
@@ -95,22 +95,23 @@ module.exports = {
       },
     ],
     'object-curly-newline': [
-      2,
+      'error',
       {
-        multiline: true,
-        consistent: true,
-        minProperties: 5,
+        ObjectExpression: 'always',
+        ObjectPattern: { multiline: true },
+        ImportDeclaration: 'never',
+        ExportDeclaration: { multiline: true, minProperties: 3 },
       },
     ],
     quotes: [
-      2,
+      'error',
       'single',
       {
         avoidEscape: true,
         allowTemplateLiterals: false,
       },
     ],
-    radix: 0,
+    radix: ["error", "as-needed"],
     'sort-imports': [
       'error',
       {
@@ -138,29 +139,15 @@ module.exports = {
         asyncArrow: 'always',
       },
     ],
-    'babel/camelcase': 1,
+    'babel/camelcase': 'error',
     // 'babel/new-cap': 1,
-    'babel/no-invalid-this': 1,
-    'babel/object-curly-spacing': 0,
-    'babel/semi': 0,
-    'babel/valid-typeof': 0,
-    // 'babel/no-unused-expressions': [
-    //   1,
-    //   {
-    //     allowTaggedTemplates: true,
-    //   },
-    // ],
-    // 'babel/quotes': [
-    //   2,
-    //   'single',
-    //   {
-    //     avoidEscape: true,
-    //     allowTemplateLiterals: true,
-    //   },
-    // ],
-    'import/prefer-default-export': 0,
-    import: 0,
-    'import/extensions': 0,
+    'babel/no-invalid-this': 'error',
+    'babel/object-curly-spacing': 'off',
+    'babel/semi': 'off',
+    'babel/valid-typeof': 'off',
+    'import/prefer-default-export': 'off',
+    import: 'off',
+    'import/extensions': 'off',
     'import/no-extraneous-dependencies': [
       'error',
       {
