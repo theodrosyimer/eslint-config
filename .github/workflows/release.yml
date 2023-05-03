@@ -6,6 +6,9 @@ on:
   pull_request:
     branches:
       - main
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
 jobs:
   cache-and-install:
     runs-on: ubuntu-latest
@@ -29,7 +32,8 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 16.x
+          cache: "pnpm"
 
       - name: Install pnpm
         uses: pnpm/action-setup@v2
@@ -38,7 +42,7 @@ jobs:
           version: 7
 
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
 
       - name: Release & Publish
         env:
