@@ -29,17 +29,17 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
 
-      - name: Install Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16.x
-          cache: "pnpm"
-
       - name: Install pnpm
         uses: pnpm/action-setup@v2
         id: pnpm-install
         with:
           version: 7
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+          cache: "pnpm"
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
