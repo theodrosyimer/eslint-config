@@ -58,7 +58,7 @@ module.exports = {
     'no-restricted-syntax': ['error', 'ForInStatement', 'LabeledStatement', 'WithStatement'],
     'no-return-assign': ['error', 'except-parens'],
     'no-unused-vars': [
-      'warn',
+      'error',
       {
         args: 'none',
         ignoreRestSiblings: true,
