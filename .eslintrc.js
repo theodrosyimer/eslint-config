@@ -1,3 +1,6 @@
+// This is a patch so that eslint will load the plugins as dependencies. Otherwise we can to install EVERYTHING in th root project
+require('@rushstack/eslint-patch/modern-module-resolution');
+
 module.exports = {
   extends: ['airbnb-base', 'prettier'],
   parser: '@babel/eslint-parser',
@@ -8,6 +11,9 @@ module.exports = {
       impliedStrict: true,
       classes: true,
     },
+    babelOptions: {
+      presets: ['@babel/preset-react'],
+    },
     sourceType: 'module',
   },
 
@@ -16,10 +22,9 @@ module.exports = {
     es2021: true,
     node: true,
     jest: true,
-    shelljs: true,
-    applescript: true,
+    jquery: true,
   },
-  plugins: ['html', 'prettier', 'babel'],
+  plugins: ['html', 'prettier', 'react-hooks'],
   settings: {
     'html/indent': '+2',
     'html/report-bad-indent': 'error',
@@ -53,7 +58,7 @@ module.exports = {
     'no-restricted-syntax': ['error', 'ForInStatement', 'LabeledStatement', 'WithStatement'],
     'no-return-assign': ['error', 'except-parens'],
     'no-unused-vars': [
-      'error',
+      'warn',
       {
         args: 'none',
         ignoreRestSiblings: true,
@@ -175,5 +180,37 @@ module.exports = {
         },
       },
     ],
+    'react/display-name': 1,
+    'react/no-array-index-key': 0,
+    'react/react-in-jsx-scope': 0,
+    'react/prefer-stateless-function': 0,
+    'react/forbid-prop-types': 0,
+    'react/no-unescaped-entities': 0,
+    'react/function-component-definition': 0,
+    'jsx-a11y/accessible-emoji': 0,
+    'jsx-a11y/label-has-associated-control': [
+      'error',
+      {
+        assert: 'either',
+      },
+    ],
+    'react/require-default-props': 0,
+    'react/jsx-filename-extension': [
+      1,
+      {
+        extensions: ['.js', '.jsx', '.ts', '.tsx', '.mdx'],
+      },
+    ],
+    'jsx-a11y/href-no-hash': 'off',
+    'jsx-a11y/anchor-is-valid': [
+      'warn',
+      {
+        aspects: ['invalidHref'],
+      },
+    ],
+    'react-hooks/rules-of-hooks': 2,
+    'react-hooks/exhaustive-deps': 1,
+    '@typescript-eslint/comma-dangle': ['off'],
+    'react/jsx-props-no-spreading': 'off',
   },
 }

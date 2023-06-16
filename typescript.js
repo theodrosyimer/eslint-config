@@ -29,6 +29,8 @@ module.exports = {
     '@typescript-eslint/comma-dangle': ['off'],
     '@typescript-eslint/no-explicit-any': 'off',
     'no-redeclare': 'off',
+    'no-unused-vars': 0,
+    '@typescript-eslint/no-unused-vars': [1, { ignoreRestSiblings: true }],
     '@typescript-eslint/no-redeclare': [
       'warn',
       {
@@ -44,6 +46,10 @@ module.exports = {
         allowAny: true,
       },
     ],
+    '@typescript-eslint/no-use-before-define': 'warn',
+    // this is covered by the typescript compiler, so we don't need it
+    'no-undef': 'off',
+    'no-shadow': 'off', // TS does it
     'prettier/prettier': [
       'error',
       {
