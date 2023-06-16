@@ -1,8 +1,8 @@
 // This is a patch so that eslint will load the plugins as dependencies. Otherwise we can to install EVERYTHING in th root project
-require('@rushstack/eslint-patch/modern-module-resolution');
+require('@rushstack/eslint-patch/modern-module-resolution')
 
 module.exports = {
-  extends: ['airbnb-base', 'prettier'],
+  extends: ['airbnb-base', 'prettier', 'plugin:react/recommended'],
   parser: '@babel/eslint-parser',
   parserOptions: {
     requireConfigFile: false,
@@ -11,9 +11,7 @@ module.exports = {
       impliedStrict: true,
       classes: true,
     },
-    babelOptions: {
-      presets: ['@babel/preset-react'],
-    },
+    babelOptions: { presets: ['@babel/preset-react'] },
     sourceType: 'module',
   },
 
@@ -24,7 +22,7 @@ module.exports = {
     jest: true,
     jquery: true,
   },
-  plugins: ['html', 'prettier', 'react-hooks'],
+  plugins: ['html', 'prettier', 'babel', 'react', 'react-hooks', 'jsx-a11y'],
   settings: {
     'html/indent': '+2',
     'html/report-bad-indent': 'error',
@@ -52,13 +50,18 @@ module.exports = {
     'no-await-in-loop': 'error',
     'no-console': 'off',
     'no-debugger': 'off',
-    'no-empty-function': ['error',{ allow: ['constructors'] }],
+    'no-empty-function': ['error', { allow: ['constructors'] }],
     'no-multiple-empty-lines': ['error', { max: 1 }],
     'no-plusplus': 'off',
-    'no-restricted-syntax': ['error', 'ForInStatement', 'LabeledStatement', 'WithStatement'],
+    'no-restricted-syntax': [
+      'error',
+      'ForInStatement',
+      'LabeledStatement',
+      'WithStatement',
+    ],
     'no-return-assign': ['error', 'except-parens'],
     'no-unused-vars': [
-      'error',
+      'warn',
       {
         args: 'none',
         ignoreRestSiblings: true,
@@ -66,12 +69,7 @@ module.exports = {
       },
     ],
 
-    'no-param-reassign': [
-      'error',
-      {
-        props: false,
-      },
-    ],
+    'no-param-reassign': ['error', { props: false }],
     'no-shadow': [
       'error',
       {
@@ -84,7 +82,11 @@ module.exports = {
     'no-underscore-dangle': 'off',
     'no-use-before-define': [
       'error',
-      { functions: false, classes: true, variables: true },
+      {
+        functions: false,
+        classes: true,
+        variables: true,
+      },
     ],
     'no-var': 'error',
     // 'no-unused-expressions': [
@@ -93,12 +95,7 @@ module.exports = {
     //     'allowTaggedTemplates': true
     //   }
     // ],
-    'prefer-const': [
-      'error',
-      {
-        destructuring: 'all',
-      },
-    ],
+    'prefer-const': ['error', { destructuring: 'all' }],
     'object-curly-newline': [
       'error',
       {
@@ -111,7 +108,7 @@ module.exports = {
         ExportDeclaration: {
           multiline: true,
           minProperties: 3,
-        }
+        },
       },
     ],
     quotes: [
@@ -122,7 +119,7 @@ module.exports = {
         allowTemplateLiterals: false,
       },
     ],
-    radix: ["error", "as-needed"],
+    radix: ['error', 'as-needed'],
     'sort-imports': [
       'error',
       {
@@ -133,15 +130,7 @@ module.exports = {
         allowSeparatedGroups: true,
       },
     ],
-    'spaced-comment': [
-      'error',
-      'always',
-      {
-        block: {
-          markers: ['?', '?.'],
-        },
-      },
-    ],
+    'spaced-comment': ['error', 'always', { block: { markers: ['?', '?.'] } }],
     'space-before-function-paren': [
       'error',
       {
@@ -161,9 +150,7 @@ module.exports = {
     'import/extensions': 'off',
     'import/no-extraneous-dependencies': [
       'error',
-      {
-        devDependencies: ['**/webpack.*.js', '**/*.test.js', '**/*.spec.js'],
-      },
+      { devDependencies: ['**/webpack.*.js', '**/*.test.js', '**/*.spec.js'] },
     ],
     'import/no-unresolved': 'off',
     'import/order': [
@@ -188,26 +175,14 @@ module.exports = {
     'react/no-unescaped-entities': 0,
     'react/function-component-definition': 0,
     'jsx-a11y/accessible-emoji': 0,
-    'jsx-a11y/label-has-associated-control': [
-      'error',
-      {
-        assert: 'either',
-      },
-    ],
+    'jsx-a11y/label-has-associated-control': ['error', { assert: 'either' }],
     'react/require-default-props': 0,
     'react/jsx-filename-extension': [
       1,
-      {
-        extensions: ['.js', '.jsx', '.ts', '.tsx', '.mdx'],
-      },
+      { extensions: ['.js', '.jsx', '.ts', '.tsx', '.mdx'] },
     ],
     'jsx-a11y/href-no-hash': 'off',
-    'jsx-a11y/anchor-is-valid': [
-      'warn',
-      {
-        aspects: ['invalidHref'],
-      },
-    ],
+    'jsx-a11y/anchor-is-valid': ['warn', { aspects: ['invalidHref'] }],
     'react-hooks/rules-of-hooks': 2,
     'react-hooks/exhaustive-deps': 1,
     '@typescript-eslint/comma-dangle': ['off'],
