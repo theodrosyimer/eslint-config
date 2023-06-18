@@ -19,6 +19,7 @@ module.exports = {
   },
   // Then we add our own custom typescript rules
   rules: {
+    'react/prop-types': 1,
     // This allows us to use async function on addEventListener(). Discussion: https://twitter.com/wesbos/status/1337074242161172486
     '@typescript-eslint/no-misused-promises': [
       'error',
