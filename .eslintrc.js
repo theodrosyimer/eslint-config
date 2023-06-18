@@ -167,7 +167,7 @@ module.exports = {
         },
       },
     ],
-    "react/jsx-filename-extension": [1,{'extensions': ['.js','.jsx', '.ejs']}],
+    "react/jsx-filename-extension": 0,
     'react/display-name': 1,
     'react/no-array-index-key': 0,
     'react/react-in-jsx-scope': 0,
