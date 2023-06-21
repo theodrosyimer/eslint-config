@@ -45,7 +45,7 @@ module.exports = {
     'arrow-body-style': ['error', 'as-needed'],
     'consistent-return': 'off',
     'func-names': ['error', 'as-needed', { generators: 'never' }],
-    'newline-per-chained-call': ['error', { ignoreChainWithDepth: 2 }],
+    'newline-per-chained-call': ['error', { ignoreChainWithDepth: 1 }],
     'no-alert': 'off',
     'no-async-promise-executor': 'error',
     'no-await-in-loop': 'error',
