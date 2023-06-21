@@ -41,6 +41,7 @@ module.exports = {
         trailingComma: 'es5',
       },
     ],
+    'camelcase': ['warn',{"ignoreDestructuring": false}],
     'arrow-body-style': ['error', 'as-needed'],
     'consistent-return': 'off',
     'func-names': ['error', 'as-needed', { generators: 'never' }],
