@@ -38,7 +38,7 @@ module.exports = {
         tabWidth: 2,
         semi: false,
         endOfLine: 'lf',
-        trailingComma: 'es5',
+        trailingComma: 'all',
       },
     ],
     camelcase: ['warn', { ignoreDestructuring: false }],
