@@ -97,21 +97,21 @@ module.exports = {
     //   }
     // ],
     'prefer-const': ['error', { destructuring: 'all' }],
-    'object-curly-newline': [
-      'error',
-      {
-        ObjectExpression: {
-          multiline: true,
-          minProperties: 2,
-        },
-        ObjectPattern: { multiline: true },
-        ImportDeclaration: { multiline: true },
-        ExportDeclaration: {
-          multiline: true,
-          minProperties: 3,
-        },
-      },
-    ],
+    // 'object-curly-newline': [
+    //   'error',
+    //   {
+    //     ObjectExpression: {
+    //       multiline: true,
+    //       minProperties: 2,
+    //     },
+    //     ObjectPattern: { multiline: true },
+    //     ImportDeclaration: { multiline: true },
+    //     ExportDeclaration: {
+    //       multiline: true,
+    //       minProperties: 3,
+    //     },
+    //   },
+    // ],
     quotes: [
       'error',
       'single',
