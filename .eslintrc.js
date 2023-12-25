@@ -38,7 +38,7 @@ module.exports = {
         tabWidth: 2,
         semi: false,
         endOfLine: 'lf',
-        trailingComma: 'es5',
+        trailingComma: 'all',
       },
     ],
     camelcase: ['warn', { ignoreDestructuring: false }],
@@ -90,28 +90,28 @@ module.exports = {
       },
     ],
     'no-var': 'error',
-    // 'no-unused-expressions': [
-    //   'error',
-    //   {
-    //     'allowTaggedTemplates': true
-    //   }
-    // ],
-    'prefer-const': ['error', { destructuring: 'all' }],
-    'object-curly-newline': [
-      'error',
+    'no-unused-expressions': [
+      'warn',
       {
-        ObjectExpression: {
-          multiline: true,
-          minProperties: 2,
-        },
-        ObjectPattern: { multiline: true },
-        ImportDeclaration: { multiline: true },
-        ExportDeclaration: {
-          multiline: true,
-          minProperties: 3,
-        },
+        allowTaggedTemplates: true,
       },
     ],
+    'prefer-const': ['error', { destructuring: 'all' }],
+    // 'object-curly-newline': [
+    //   'error',
+    //   {
+    //     ObjectExpression: {
+    //       multiline: true,
+    //       minProperties: 2,
+    //     },
+    //     ObjectPattern: { multiline: true },
+    //     ImportDeclaration: { multiline: true },
+    //     ExportDeclaration: {
+    //       multiline: true,
+    //       minProperties: 3,
+    //     },
+    //   },
+    // ],
     quotes: [
       'error',
       'single',
