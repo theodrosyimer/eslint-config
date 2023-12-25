@@ -38,7 +38,7 @@ module.exports = {
         tabWidth: 2,
         semi: false,
         endOfLine: 'lf',
-        trailingComma: 'es5',
+        trailingComma: 'all',
       },
     ],
     camelcase: ['warn', { ignoreDestructuring: false }],
@@ -90,12 +90,12 @@ module.exports = {
       },
     ],
     'no-var': 'error',
-    // 'no-unused-expressions': [
-    //   'error',
-    //   {
-    //     'allowTaggedTemplates': true
-    //   }
-    // ],
+    'no-unused-expressions': [
+      'warn',
+      {
+        allowTaggedTemplates: true,
+      },
+    ],
     'prefer-const': ['error', { destructuring: 'all' }],
     // 'object-curly-newline': [
     //   'error',
