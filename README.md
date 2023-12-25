@@ -117,11 +117,11 @@ quotes: ["error", "double"];
 
 ## With TypeScript
 
-For TypeScript projects, use `@thyi/typescript`.
+For TypeScript projects, use `@thyi/eslint-config/typescript`.
 
 ```json
 {
-  "extends": ["@thyi/typescript"]
+  "extends": ["@thyi/eslint-config/typescript"]
 }
 ```
 
