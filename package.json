@@ -30,9 +30,9 @@
     "release": "release-it"
   },
   "peerDependencies": {
-    "eslint": "^8.39.0",
-    "prettier": "^2.8.7",
-    "typescript": "^5.0.4"
+    "eslint": "^8.56.0",
+    "prettier": "^3.1.1",
+    "typescript": "^5.3.3"
   },
   "dependencies": {
     "@babel/eslint-parser": "^7.23.3",
