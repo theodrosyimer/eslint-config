@@ -38,6 +38,7 @@ module.exports = {
         ignoreDeclarationMerge: true,
       },
     ],
+    '@typescript-eslint/no-unnecessary-condition': 'error',
     '@typescript-eslint/no-floating-promises': 'off',
     '@typescript-eslint/restrict-template-expressions': [
       'error',
