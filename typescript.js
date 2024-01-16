@@ -13,7 +13,7 @@ const config = {
     'plugin:@typescript-eslint/recommended-type-checked',
     'plugin:@typescript-eslint/stylistic-type-checked',
     // Layer in all the JS Rules
-    './.eslintrc.js',
+    './.eslintrc.cjs',
   ],
   parserOptions: {
     project: './tsconfig.json',
