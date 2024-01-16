@@ -1,5 +1,5 @@
 require('dotenv').config()
 
-const eslintrc = require('./.eslintrc')
+const eslintrc = require('./.eslintrc.cjs')
 
-module.exports =  eslintrc
+module.exports = eslintrc
