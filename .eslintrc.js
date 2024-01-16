@@ -45,13 +45,13 @@ module.exports = {
     'arrow-body-style': ['error', 'as-needed'],
     'consistent-return': 'off',
     'func-names': ['error', 'as-needed', { generators: 'never' }],
-    'newline-per-chained-call': ['error', { ignoreChainWithDepth: 2 }],
+    // 'newline-per-chained-call': ['error', { ignoreChainWithDepth: 2 }],
     'no-alert': 'off',
     'no-async-promise-executor': 'error',
     'no-await-in-loop': 'error',
     'no-console': 'off',
     'no-debugger': 'off',
-    'no-empty-function': ['error', { allow: ['constructors'] }],
+    'no-empty-function': ['error', { allow: ['coinstructors'] }],
     'no-multiple-empty-lines': ['error', { max: 1 }],
     'no-plusplus': 'off',
     'no-restricted-syntax': [
@@ -112,14 +112,14 @@ module.exports = {
     //     },
     //   },
     // ],
-    quotes: [
-      'error',
-      'single',
-      {
-        avoidEscape: true,
-        allowTemplateLiterals: false,
-      },
-    ],
+    // quotes: [
+    //   'error',
+    //   'single',
+    //   {
+    //     avoidEscape: true,
+    //     allowTemplateLiterals: false,
+    //   },
+    // ],
     radix: ['error', 'as-needed'],
     'sort-imports': [
       'error',

@@ -19,7 +19,7 @@ module.exports = {
   },
   // Then we add our own custom typescript rules
   rules: {
-    'react/prop-types': 1,
+    'react/prop-types': 'warn',
     // This allows us to use async function on addEventListener(). Discussion: https://twitter.com/wesbos/status/1337074242161172486
     '@typescript-eslint/no-misused-promises': [
       'error',
@@ -30,8 +30,8 @@ module.exports = {
     '@typescript-eslint/comma-dangle': ['off'],
     '@typescript-eslint/no-explicit-any': 'off',
     'no-redeclare': 'off',
-    'no-unused-vars': 0,
-    '@typescript-eslint/no-unused-vars': [1, { ignoreRestSiblings: true }],
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': ['warn', { ignoreRestSiblings: true }],
     '@typescript-eslint/no-redeclare': [
       'warn',
       {
@@ -40,14 +40,6 @@ module.exports = {
     ],
     '@typescript-eslint/no-unnecessary-condition': 'error',
     '@typescript-eslint/no-floating-promises': 'off',
-    '@typescript-eslint/restrict-template-expressions': [
-      'error',
-      {
-        allowBoolean: true,
-        allowNullish: true,
-        allowAny: true,
-      },
-    ],
     '@typescript-eslint/no-use-before-define': 'warn',
     // this is covered by the typescript compiler, so we don't need it
     'no-undef': 'off',
