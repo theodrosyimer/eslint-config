@@ -1,7 +1,8 @@
 // This is a patch so that eslint will load the plugins as dependencies. Otherwise we can to install EVERYTHING in th root project
 require('@rushstack/eslint-patch/modern-module-resolution')
 
-module.exports = {
+/** @type {import("eslint").Linter.Config} */
+const config = {
   extends: ['airbnb-base', 'prettier', 'plugin:react/recommended'],
   parser: '@babel/eslint-parser',
   parserOptions: {
@@ -186,3 +187,5 @@ module.exports = {
     'react/jsx-props-no-spreading': 'off',
   },
 }
+
+module.exports = config
