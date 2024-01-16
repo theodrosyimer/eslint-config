@@ -23,14 +23,7 @@ const config = {
     // this is covered by the typescript compiler, so we don't need it
     'no-undef': 'off',
     'no-shadow': 'off', // TS does it
-    'space-before-function-paren': [
-      'error',
-      {
-        anonymous: 'ignore',
-        named: 'never',
-        asyncArrow: 'ignore',
-      },
-    ],
+    'space-before-function-paren': 'off',
     'react/prop-types': 'warn',
     // These opinionated rules are enabled in stylistic-type-checked above.
     '@typescript-eslint/array-type': 'off',
