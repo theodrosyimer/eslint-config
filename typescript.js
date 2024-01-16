@@ -1,4 +1,5 @@
-module.exports = {
+/** @type {import("eslint").Linter.Config} */
+const config = {
   globals: {
     React: true,
     JSX: true,
@@ -76,3 +77,5 @@ module.exports = {
     ],
   },
 }
+
+module.exports = config
