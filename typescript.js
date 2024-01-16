@@ -9,8 +9,8 @@ module.exports = {
   extends: [
     'plugin:@typescript-eslint/recommended', // Uses rules from `@typescript-eslint/eslint-plugin`,
     // 'airbnb-typescript',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:@typescript-eslint/recommended-requiring-type-checking',
+    "plugin:@typescript-eslint/recommended-type-checked",
+    "plugin:@typescript-eslint/stylistic-type-checked",
     // Layer in all the JS Rules
     './.eslintrc.js',
   ],
@@ -19,19 +19,46 @@ module.exports = {
   },
   // Then we add our own custom typescript rules
   rules: {
+    // this is covered by the typescript compiler, so we don't need it
+    'no-undef': 'off',
+    'no-shadow': 'off', // TS does it
     'react/prop-types': 'warn',
+    // These opinionated rules are enabled in stylistic-type-checked above.
+    "@typescript-eslint/array-type": "off",
+    "@typescript-eslint/consistent-type-definitions": "off",
+
+    '@typescript-eslint/no-use-before-define': 'warn',
+    "@typescript-eslint/consistent-type-imports": [
+      "warn",
+      {
+        prefer: "type-imports",
+        fixStyle: "inline-type-imports",
+      },
+    ],
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      {
+        argsIgnorePattern: "^_",
+        ignoreRestSiblings: true
+      }
+    ],
+    "@typescript-eslint/require-await": "off",
+    "@typescript-eslint/no-misused-promises": [
+      "error",
+      {
+        checksVoidReturn: { attributes: false },
+      },
+    ],
     // This allows us to use async function on addEventListener(). Discussion: https://twitter.com/wesbos/status/1337074242161172486
     '@typescript-eslint/no-misused-promises': [
       'error',
       {
-        checksVoidReturn: false,
+        checksVoidReturn: { attributes: false },
       },
     ],
     '@typescript-eslint/comma-dangle': ['off'],
     '@typescript-eslint/no-explicit-any': 'off',
     'no-redeclare': 'off',
-    'no-unused-vars': 'off',
-    '@typescript-eslint/no-unused-vars': ['warn', { ignoreRestSiblings: true }],
     '@typescript-eslint/no-redeclare': [
       'warn',
       {
@@ -40,10 +67,6 @@ module.exports = {
     ],
     '@typescript-eslint/no-unnecessary-condition': 'error',
     '@typescript-eslint/no-floating-promises': 'off',
-    '@typescript-eslint/no-use-before-define': 'warn',
-    // this is covered by the typescript compiler, so we don't need it
-    'no-undef': 'off',
-    'no-shadow': 'off', // TS does it
     'prettier/prettier': [
       'error',
       {

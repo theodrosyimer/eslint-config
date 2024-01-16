@@ -183,7 +183,6 @@ module.exports = {
     'jsx-a11y/anchor-is-valid': ['warn', { aspects: ['invalidHref'] }],
     'react-hooks/rules-of-hooks': 2,
     'react-hooks/exhaustive-deps': 1,
-    '@typescript-eslint/comma-dangle': ['off'],
     'react/jsx-props-no-spreading': 'off',
   },
 }
