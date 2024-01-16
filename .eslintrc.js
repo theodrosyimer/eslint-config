@@ -51,7 +51,7 @@ module.exports = {
     'no-await-in-loop': 'error',
     'no-console': 'off',
     'no-debugger': 'off',
-    'no-empty-function': ['error', { allow: ['coinstructors'] }],
+    'no-empty-function': ['error', { allow: ['constructors'] }],
     'no-multiple-empty-lines': ['error', { max: 1 }],
     'no-plusplus': 'off',
     'no-restricted-syntax': [

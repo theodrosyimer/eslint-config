@@ -9,8 +9,8 @@ module.exports = {
   extends: [
     'plugin:@typescript-eslint/recommended', // Uses rules from `@typescript-eslint/eslint-plugin`,
     // 'airbnb-typescript',
-    "plugin:@typescript-eslint/recommended-type-checked",
-    "plugin:@typescript-eslint/stylistic-type-checked",
+    'plugin:@typescript-eslint/recommended-type-checked',
+    'plugin:@typescript-eslint/stylistic-type-checked',
     // Layer in all the JS Rules
     './.eslintrc.js',
   ],
@@ -24,31 +24,25 @@ module.exports = {
     'no-shadow': 'off', // TS does it
     'react/prop-types': 'warn',
     // These opinionated rules are enabled in stylistic-type-checked above.
-    "@typescript-eslint/array-type": "off",
-    "@typescript-eslint/consistent-type-definitions": "off",
+    '@typescript-eslint/array-type': 'off',
+    '@typescript-eslint/consistent-type-definitions': 'off',
 
     '@typescript-eslint/no-use-before-define': 'warn',
-    "@typescript-eslint/consistent-type-imports": [
-      "warn",
+    '@typescript-eslint/consistent-type-imports': [
+      'warn',
       {
-        prefer: "type-imports",
-        fixStyle: "inline-type-imports",
+        prefer: 'type-imports',
+        fixStyle: 'inline-type-imports',
       },
     ],
-    "@typescript-eslint/no-unused-vars": [
-      "warn",
+    '@typescript-eslint/no-unused-vars': [
+      'warn',
       {
-        argsIgnorePattern: "^_",
-        ignoreRestSiblings: true
-      }
-    ],
-    "@typescript-eslint/require-await": "off",
-    "@typescript-eslint/no-misused-promises": [
-      "error",
-      {
-        checksVoidReturn: { attributes: false },
+        argsIgnorePattern: '^_',
+        ignoreRestSiblings: true,
       },
     ],
+    '@typescript-eslint/require-await': 'off',
     // This allows us to use async function on addEventListener(). Discussion: https://twitter.com/wesbos/status/1337074242161172486
     '@typescript-eslint/no-misused-promises': [
       'error',
