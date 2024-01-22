@@ -77,6 +77,7 @@ const config = {
       {
         hoist: 'never',
         allow: ['resolve', 'reject', 'done', 'next', 'err', 'error'],
+        ignoreOnInitialization: true,
       },
     ],
     'no-useless-constructor': 'off',
