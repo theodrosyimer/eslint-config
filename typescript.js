@@ -28,8 +28,19 @@ const config = {
     // These opinionated rules are enabled in stylistic-type-checked above.
     '@typescript-eslint/array-type': 'off',
     '@typescript-eslint/consistent-type-definitions': 'off',
-
-    '@typescript-eslint/no-use-before-define': 'warn',
+    // Note: you must disable the base rule as it can report incorrect errors
+    'no-use-before-define': 'off',
+    '@typescript-eslint/no-use-before-define': [
+      'warn',
+      {
+        functions: false,
+        classes: true,
+        variables: true,
+        enums: true,
+        typedefs: false,
+        ignoreTypeReferences: true,
+      },
+    ],
     '@typescript-eslint/consistent-type-imports': [
       'warn',
       {
