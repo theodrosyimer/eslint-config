@@ -4,28 +4,24 @@ const config = {
     React: true,
     JSX: true,
   },
-  // then add some extra good stuff for Typescript
   parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint'],
   extends: [
-    'plugin:@typescript-eslint/recommended', // Uses rules from `@typescript-eslint/eslint-plugin`,
-    // 'airbnb-typescript',
     'plugin:@typescript-eslint/recommended-type-checked',
     'plugin:@typescript-eslint/stylistic-type-checked',
     // Layer in all the JS Rules
     './.eslintrc.cjs',
   ],
   parserOptions: {
-    project: './tsconfig.json',
+    project: true,
+    tsconfigRootDir: __dirname,
   },
-  // Then we add our own custom typescript rules
   rules: {
     // this is covered by the typescript compiler, so we don't need it
     'no-undef': 'off',
     'no-shadow': 'off', // TS does it
     'space-before-function-paren': 'off',
     'react/prop-types': 'warn',
-    // These opinionated rules are enabled in stylistic-type-checked above.
     '@typescript-eslint/array-type': 'off',
     '@typescript-eslint/consistent-type-definitions': 'off',
     // Note: you must disable the base rule as it can report incorrect errors
