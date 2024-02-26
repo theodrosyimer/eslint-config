@@ -99,29 +99,6 @@ const config = {
       },
     ],
     'prefer-const': ['error', { destructuring: 'all' }],
-    // 'object-curly-newline': [
-    //   'error',
-    //   {
-    //     ObjectExpression: {
-    //       multiline: true,
-    //       minProperties: 2,
-    //     },
-    //     ObjectPattern: { multiline: true },
-    //     ImportDeclaration: { multiline: true },
-    //     ExportDeclaration: {
-    //       multiline: true,
-    //       minProperties: 3,
-    //     },
-    //   },
-    // ],
-    // quotes: [
-    //   'error',
-    //   'single',
-    //   {
-    //     avoidEscape: true,
-    //     allowTemplateLiterals: false,
-    //   },
-    // ],
     radix: ['error', 'as-needed'],
     'sort-imports': [
       'error',
