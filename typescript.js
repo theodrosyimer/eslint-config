@@ -13,7 +13,7 @@ const config = {
     './.eslintrc.cjs',
   ],
   parserOptions: {
-    project: '/tsconfig.json',
+    project: './tsconfig.json',
   },
   rules: {
     // this is covered by the typescript compiler, so we don't need it
