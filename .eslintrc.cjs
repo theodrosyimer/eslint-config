@@ -148,7 +148,17 @@ const config = {
     'import/extensions': 'off',
     'import/no-extraneous-dependencies': [
       'error',
-      { devDependencies: ['**/webpack.*.js', '**/*.test.js', '**/*.spec.js'] },
+      {
+        devDependencies: [
+          'test.{ts,tsx,js,jsx}',
+          'test-*.{ts,tsx,js,jsx}',
+          '**/*{.,_}{test,spec}.{ts,tsx,js,jsx}',
+          '**/jest.config.{ts,js}',
+          '**/jest.setup.{ts,js}',
+          '**/*.stories.*',
+          '**/.storybook/**/*.*',
+        ],
+      },
     ],
     'import/no-unresolved': 'off',
     'import/order': [
