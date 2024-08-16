@@ -1,21 +1,31 @@
-name: Release
+name: Release and Publish
 on:
-  push:
+  workflow_run:
+    workflows: ["Lint and Build"]
+    types: [completed]
     branches:
       - main
-  pull_request:
-    branches:
-      - main
+  # pull_request:
+  #   branches:
+  #     - main
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
-  cache-and-install:
+  release-and-publish:
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      # pull-requests: write
+
+    strategy:
+      matrix:
+        node-version: [20]
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
@@ -30,21 +40,21 @@ jobs:
         run: npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
 
       - name: Install pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v3
         id: pnpm-install
         with:
           version: 8
 
       - name: Install Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 16.x
-          cache: "pnpm"
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Release & Publish
+      - name: Release and Publish
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

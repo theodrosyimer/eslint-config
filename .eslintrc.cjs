@@ -1,7 +1,8 @@
 // This is a patch so that eslint will load the plugins as dependencies. Otherwise we can to install EVERYTHING in th root project
 require('@rushstack/eslint-patch/modern-module-resolution')
 
-module.exports = {
+/** @type {import("eslint").Linter.Config} */
+const config = {
   extends: ['airbnb-base', 'prettier', 'plugin:react/recommended'],
   parser: '@babel/eslint-parser',
   parserOptions: {
@@ -45,7 +46,7 @@ module.exports = {
     'arrow-body-style': ['error', 'as-needed'],
     'consistent-return': 'off',
     'func-names': ['error', 'as-needed', { generators: 'never' }],
-    'newline-per-chained-call': ['error', { ignoreChainWithDepth: 2 }],
+    // 'newline-per-chained-call': ['error', { ignoreChainWithDepth: 2 }],
     'no-alert': 'off',
     'no-async-promise-executor': 'error',
     'no-await-in-loop': 'error',
@@ -76,6 +77,7 @@ module.exports = {
       {
         hoist: 'never',
         allow: ['resolve', 'reject', 'done', 'next', 'err', 'error'],
+        ignoreOnInitialization: true,
       },
     ],
     'no-useless-constructor': 'off',
@@ -97,29 +99,6 @@ module.exports = {
       },
     ],
     'prefer-const': ['error', { destructuring: 'all' }],
-    // 'object-curly-newline': [
-    //   'error',
-    //   {
-    //     ObjectExpression: {
-    //       multiline: true,
-    //       minProperties: 2,
-    //     },
-    //     ObjectPattern: { multiline: true },
-    //     ImportDeclaration: { multiline: true },
-    //     ExportDeclaration: {
-    //       multiline: true,
-    //       minProperties: 3,
-    //     },
-    //   },
-    // ],
-    quotes: [
-      'error',
-      'single',
-      {
-        avoidEscape: true,
-        allowTemplateLiterals: false,
-      },
-    ],
     radix: ['error', 'as-needed'],
     'sort-imports': [
       'error',
@@ -146,7 +125,17 @@ module.exports = {
     'import/extensions': 'off',
     'import/no-extraneous-dependencies': [
       'error',
-      { devDependencies: ['**/webpack.*.js', '**/*.test.js', '**/*.spec.js'] },
+      {
+        devDependencies: [
+          'test.{ts,tsx,js,jsx}',
+          'test-*.{ts,tsx,js,jsx}',
+          '**/*{.,_}{test,spec}.{ts,tsx,js,jsx}',
+          '**/jest.config.{ts,js}',
+          '**/jest.setup.{ts,js}',
+          '**/*.stories.*',
+          '**/.storybook/**/*.*',
+        ],
+      },
     ],
     'import/no-unresolved': 'off',
     'import/order': [
@@ -183,7 +172,8 @@ module.exports = {
     'jsx-a11y/anchor-is-valid': ['warn', { aspects: ['invalidHref'] }],
     'react-hooks/rules-of-hooks': 2,
     'react-hooks/exhaustive-deps': 1,
-    '@typescript-eslint/comma-dangle': ['off'],
     'react/jsx-props-no-spreading': 'off',
   },
 }
+
+module.exports = config

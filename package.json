@@ -1,6 +1,6 @@
 {
   "name": "@thyi/eslint-config",
-  "version": "1.21.5",
+  "version": "1.27.4",
   "description": "ESLint and Prettier Config for JavaScript and Typescript",
   "keywords": [
     "javascript",
@@ -16,7 +16,7 @@
   "license": "MIT",
   "eslintConfig": {
     "extends": [
-      "./.eslintrc.js"
+      "./.eslintrc.cjs"
     ]
   },
   "publishConfig": {
@@ -30,9 +30,9 @@
     "release": "release-it"
   },
   "peerDependencies": {
-    "eslint": "^8.39.0",
-    "prettier": "^2.8.7",
-    "typescript": "^5.0.4"
+    "eslint": "^8.56.0",
+    "prettier": "^3.1.1",
+    "typescript": "^5.3.3"
   },
   "dependencies": {
     "@babel/eslint-parser": "^7.23.3",
@@ -54,5 +54,8 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "release-it": "^17.0.1"
+  },
+  "devDependencies": {
+    "prettier": "^3.2.5"
   }
 }
