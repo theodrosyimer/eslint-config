@@ -1,25 +1,27 @@
-name: Publish
+name: Release and Publish
 on:
-  push:
+  workflow_run:
+    workflows: ["Lint and Build"]
+    types: [completed]
     branches:
       - main
-  pull_request:
-    branches:
-      - main
+  # pull_request:
+  #   branches:
+  #     - main
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
-  lint-build-and-publish:
+  release-and-publish:
     runs-on: ubuntu-latest
 
     permissions:
       contents: write
-      pull-requests: write
+      # pull-requests: write
 
     strategy:
       matrix:
-        node-version: [16, 18, 20]
+        node-version: [20]
 
     steps:
       - name: Checkout
@@ -52,10 +54,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Lint & Build
-        run: pnpm lint && pnpm build
-
-      - name: Release & Publish
+      - name: Release and Publish
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
