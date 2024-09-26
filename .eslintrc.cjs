@@ -27,7 +27,7 @@ const config = {
   settings: {
     'html/indent': '+2',
     'html/report-bad-indent': 'error',
-    'react': {
+    react: {
       version: 'detect',
     },
   },

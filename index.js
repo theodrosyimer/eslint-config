@@ -1,5 +1,7 @@
-require('dotenv').config()
+import dotenv from 'dotenv'
 
-const eslintrc = require('./.eslintrc.cjs')
+import eslintrc from './.eslint.config.js'
 
-module.exports = eslintrc
+dotenv.config()
+
+export default eslintrc
