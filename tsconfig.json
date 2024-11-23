@@ -1,20 +1,11 @@
 {
-  "include": [
-    "**/*.js",
-    "**/*.cjs",
-    "**/.*"
-  ],
-  "exclude": [
-    "dist",
-    "node_modules"
-  ],
+  "include": ["**/*.js", "**/*.cjs", "**/.*"],
+  "exclude": ["dist", "node_modules"],
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "node",
-    "types": [
-      "node"
-    ],
+    "types": ["node"],
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
