@@ -1,6 +1,6 @@
 {
   "name": "@thyi/eslint-config",
-  "version": "1.27.4",
+  "version": "1.27.5",
   "description": "ESLint and Prettier Config for JavaScript and Typescript",
   "keywords": [
     "javascript",
@@ -35,28 +35,31 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
-    "@babel/eslint-parser": "^7.23.3",
-    "@babel/preset-react": "^7.23.3",
-    "@release-it/conventional-changelog": "^8.0.1",
-    "@rushstack/eslint-patch": "^1.6.1",
-    "@types/node": "^20.10.5",
-    "@typescript-eslint/eslint-plugin": "^6.16.0",
-    "@typescript-eslint/parser": "^6.16.0",
-    "dotenv": "^16.3.1",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-config-airbnb-typescript": "^17.1.0",
-    "eslint-config-prettier": "^9.1.0",
+    "@babel/eslint-parser": "^7.26.8",
+    "@babel/preset-react": "^7.26.3",
+    "@react-native-community/eslint-config": "^3.2.0",
+    "@release-it/conventional-changelog": "^10.0.0",
+    "@rushstack/eslint-patch": "^1.10.5",
+    "@types/eslint": "^9.6.1",
+    "@types/node": "^22.13.8",
+    "@types/react": "~19.0.10",
+    "@typescript-eslint/eslint-plugin": "^8.25.0",
+    "@typescript-eslint/parser": "^8.25.0",
+    "dotenv": "^16.4.7",
+    "eslint-config-prettier": "^10.0.2",
     "eslint-plugin-babel": "^5.3.1",
-    "eslint-plugin-html": "^7.1.0",
-    "eslint-plugin-import": "^2.29.1",
-    "eslint-plugin-jsx-a11y": "^6.8.0",
-    "eslint-plugin-prettier": "^5.1.2",
-    "eslint-plugin-react": "^7.33.2",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "release-it": "^17.0.1"
+    "eslint-plugin-html": "^8.1.2",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-prettier": "^5.2.3",
+    "eslint": "^8.57.1",
+    "eslint-plugin-react": "^7.37.4",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-native": "^5.0.0",
+    "release-it": "^18.1.2"
   },
   "devDependencies": {
-    "prettier": "^3.2.5"
+    "prettier": "^3.5.2"
   },
-  "packageManager": "pnpm@9.12.1+sha512.e5a7e52a4183a02d5931057f7a0dbff9d5e9ce3161e33fa68ae392125b79282a8a8a470a51dfc8a0ed86221442eb2fb57019b0990ed24fab519bf0e1bc5ccfc4"
+  "packageManager": "pnpm@10.5.2"
 }

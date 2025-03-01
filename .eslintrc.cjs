@@ -3,7 +3,7 @@ require('@rushstack/eslint-patch/modern-module-resolution')
 
 /** @type {import("eslint").Linter.Config} */
 const config = {
-  extends: ['airbnb-base', 'prettier', 'plugin:react/recommended'],
+  extends: ['prettier', 'plugin:react/recommended'],
   parser: '@babel/eslint-parser',
   parserOptions: {
     requireConfigFile: false,
