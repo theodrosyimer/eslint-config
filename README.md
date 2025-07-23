@@ -1,158 +1,274 @@
-# eslint-config
+# @thyi/eslint-config
 
-- [What it does](#what-it-does)
-- [Install](#install)
-- [Settings](#settings)
-  - [Prettier Rules](#prettier-rules)
-- [With TypeScript](#with-typescript)
-- [With VS Code](#with-vs-code)
-- [With WSL](#with-wsl)
+> **A comprehensive, modern ESLint configuration for JavaScript and TypeScript projects with React support**
 
-Based on: [wesbos/eslint-config-wesbos: No-Sweat™ Eslint and Prettier Setup - with or without VS Code](https://github.com/wesbos/eslint-config-wesbos).
+[![npm version](https://img.shields.io/npm/v/@thyi/eslint-config.svg)](https://www.npmjs.com/package/@thyi/eslint-config)
+[![npm downloads](https://img.shields.io/npm/dm/@thyi/eslint-config.svg)](https://www.npmjs.com/package/@thyi/eslint-config)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## What it does
+## ✨ Features
 
-- Lints JavaScript and TypeScript based on the latest standards
-- Fixes issues and formatting errors with Prettier
-- Lints + Fixes inside of html script tags
-- Lints + Fixes React via eslint-config-airbnb
-- You can see all the [rules here](https://github.com/theodrosyimer/eslint-config/blob/main/.eslintrc.js) - these generally abide by the code written in my courses. You are very welcome to overwrite any of these settings, or just fork the entire thing to create your own.
+- **🔧 Zero-config setup** - Works out of the box with sensible defaults
+- **⚡ Modern ESLint Flat Config** - Uses the latest ESLint configuration format
+- **📱 React & React Native** - Full support for React applications and React Native projects
+- **🔷 TypeScript-first** - Comprehensive TypeScript support with type-aware linting
+- **🎨 Prettier integration** - Seamless code formatting with Prettier
+- **📦 Import organization** - Automatic import sorting and grouping
+- **🚀 Performance optimized** - Minimal overhead with intelligent rule selection
 
-## Install
+## 📋 What's Included
 
-It's recommended you install this once per every project. ESLint used to have global configs, but no longer.
+This configuration includes opinionated settings for:
 
-<!-- TODO: Make an updated Youtube video -->
+- **ESLint Core Rules** - Latest JavaScript/ES2022+ standards
+- **TypeScript** - Type-aware linting with `@typescript-eslint`
+- **React** - JSX, hooks, and React best practices
+- **React Native** - Platform-specific rules and optimizations
+- **Import Management** - Organized imports with `eslint-plugin-import`
+- **Code Formatting** - Prettier integration with consistent styling
+- **Performance** - Rules optimized for modern JavaScript engines
 
-1. If you don't already have a `package.json` file, create one with `npm init -y`.
+## 🚀 Quick Start
 
-2. Then we need to install this config
+### Installation
 
-```
-npm install @thyi/eslint-config
-```
+```bash
+# npm
+npm install --save-dev @thyi/eslint-config
 
-4. We need to put our eslint settings in a file in the root of your project. I prefer to use our existing `package.json`, and add an `eslintConfig` property. You can also create a new `.eslintrc` or `.eslintrc.js` file that lives where package.json does:
+# pnpm (recommended)
+pnpm add -D @thyi/eslint-config
 
-**in package.json**, add this anywhere top level. Like right under your "scripts" object.
-
-```json
-"eslintConfig": {
-  "extends": ["@thyi/eslint-config"]
-}
-```
-
-Or put this in a `.eslintrc` file
-
-```json
-{
-  "extends": ["@thyi/eslint-config"]
-}
+# yarn
+yarn add --dev @thyi/eslint-config
 ```
 
-5. You can add two scripts to your package.json to lint and/or fix:
+### Basic JavaScript/React Setup
 
-```json
-"scripts": {
-  "lint": "eslint .",
-  "lint:fix": "eslint . --fix"
-},
-```
-
-6. Now you can manually lint your code by running `npm run lint` and fix all fixable issues with `npm run lint:fix`. You probably want your editor to do this though.
-
-## Settings
-
-If you'd like to overwrite eslint or prettier settings, you can add the rules in your `.eslintrc` file. The [ESLint rules](https://eslint.org/docs/rules/) go directly under `"rules"`.
+Create an `eslint.config.js` file in your project root:
 
 ```js
+import config from '@thyi/eslint-config'
+
+export default config
+```
+
+### TypeScript Setup
+
+For TypeScript projects, ensure you have a `tsconfig.json` file, then use the same configuration:
+
+```js
+import config from '@thyi/eslint-config'
+
+export default config
+```
+
+The configuration automatically detects TypeScript files and applies appropriate rules.
+
+### Package.json Scripts
+
+Add these scripts to your `package.json`:
+
+```json
 {
-  "extends": [
-    "@thyi/eslint-config"
-  ],
-  "rules": {
-    "no-console": 2,
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "lint:check": "eslint . --max-warnings 0"
   }
 }
 ```
 
-### Prettier Rules
+## ⚙️ Configuration
 
-There are only 2 prettier rules included in my config - `singleQuote: true` and `endOfLine: 'auto'`.
+### Custom Rules Override
 
-If you want custom [prettier options](https://prettier.io/docs/en/options.html), it's recommended to create a `.prettierrc` file in your root directory like so:
+To override or extend rules, modify your `eslint.config.js`:
 
 ```js
+import baseConfig from '@thyi/eslint-config'
+
+export default [
+  ...baseConfig,
+  {
+    rules: {
+      // Override specific rules
+      'no-console': 'error',
+      '@typescript-eslint/no-unused-vars': 'error',
+
+      // Disable rules you don't want
+      'react-native/no-inline-styles': 'off'
+    }
+  }
+]
+```
+
+### TypeScript Project Configuration
+
+Ensure your `tsconfig.json` is properly configured:
+
+```json
 {
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022"],
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "jsx": "react",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
+}
+```
+
+### Environment-Specific Overrides
+
+The configuration includes intelligent overrides for different file types:
+
+- **React files** (`.tsx`, `.jsx`) - React-specific rules enabled
+- **Test files** (`*.test.*`, `*.spec.*`) - Relaxed rules for testing
+- **JavaScript files** (`.js`, `.cjs`, `.mjs`) - TypeScript rules disabled
+
+### File Ignoring
+
+The configuration automatically ignores common build directories:
+
+- `.expo/`
+- `.next/`
+- `build/`
+- `dist/`
+- `node_modules/`
+- `babel.config.js`
+- `metro.config.js`
+
+## 🎨 Prettier Integration
+
+This ESLint configuration is **Prettier-friendly** but doesn't enforce Prettier formatting rules. Instead, it:
+
+- **Disables conflicting rules** - Uses `eslint-config-prettier` to turn off ESLint rules that conflict with Prettier
+- **Lets you control formatting** - You configure Prettier separately according to your preferences
+- **Avoids rule conflicts** - No fighting between ESLint and Prettier over formatting
+
+### Setting up Prettier
+
+Create a `.prettierrc` file in your project root with your preferred settings:
+
+```json
+{
+  "arrowParens": "always",
   "singleQuote": true,
-  "endOfLine": "auto",
-  "tabWidth": 4
+  "printWidth": 100,
+  "tabWidth": 2,
+  "semi": false,
+  "endOfLine": "lf",
+  "trailingComma": "all"
 }
 ```
 
-You can also put this in your EsLint config as a rule like so:
+Or use any other Prettier configuration format (`.prettierrc.js`, `prettier.config.js`, etc.).
+
+### Recommended Workflow
+
+1. **ESLint handles code quality** - Logic errors, unused variables, React rules, etc.
+2. **Prettier handles formatting** - Indentation, line breaks, quotes, etc.
+3. **No conflicts** - This config ensures they work together seamlessly
+
+This approach gives you maximum flexibility while avoiding the performance overhead of running Prettier through ESLint.
+
+## 🔧 IDE Integration
+
+### VS Code Setup
+
+1. Install the [ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+
+2. Add these settings to your VS Code `settings.json`:
 
 ```json
 {
-  "extends": ["@thyi/eslint-config"],
-  "rules": {
-    ... any eslint rules here
-    "prettier/prettier": [
-      "error",
-      {
-        "singleQuote": true,
-        "endOfLine": "auto",
-        "tabWidth": 4
-      },
-    ],
-  }
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "[javascript][javascriptreact][typescript][typescriptreact]": {
+    "editor.formatOnSave": false
+  },
+  "eslint.experimental.useFlatConfig": true
 }
 ```
 
-Note if you are switching to double quotes, you'll also need to add this eslint rule, or they will fight to the death!
+### Other IDEs
 
-```js
-quotes: ["error", "double"];
-```
+- **WebStorm**: ESLint support is built-in, just ensure flat config is enabled
+- **Vim/Neovim**: Use `ale` or `nvim-lspconfig` with ESLint language server
+- **Emacs**: Use `flycheck-eslint` with flat config support
 
-## With TypeScript
+## 📚 Rule Categories
 
-For TypeScript projects, use `@thyi/eslint-config/typescript`.
+### Core JavaScript Rules
 
-```json
-{
-  "extends": ["@thyi/eslint-config/typescript"]
-}
-```
+- **Code Quality**: Prevents common bugs and anti-patterns
+- **Modern Syntax**: Encourages ES2022+ features
+- **Performance**: Rules that improve runtime performance
+- **Readability**: Consistent code structure and naming
 
-TypeScript users will also need a `tsconfig.json` file in their project. An empty object (`{}`) will do if you don't have one!
+### TypeScript Rules
 
-## With VS Code
+- **Type Safety**: Strict type checking and null safety
+- **Modern TypeScript**: Latest TypeScript features and patterns
+- **Performance**: Type-aware optimizations
+- **Import Management**: Type-only imports and module resolution
 
-You should read this entire thing. Serious!
+### React Rules
 
-Once you have done one, or both, of the above installs. You probably want your editor to lint and fix for you. Here are the instructions for VS Code:
+- **Hooks**: Comprehensive React Hooks linting
+- **JSX**: JSX-specific rules and accessibility
+- **Performance**: React performance optimizations
+- **Modern Patterns**: Latest React patterns and best practices
 
-1. Install the [ESLint package](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
-2. Now we need to setup some VS Code settings via `Code/File` → `Preferences` → `Settings`. It's easier to enter these settings while editing the `settings.json` file, so click the Open (Open Settings) icon in the top right corner:
+### React Native Rules
 
-```js
-// These are all my auto-save configs
-"editor.formatOnSave": true,
-// turn it off for JS and JSX, we will do this via eslint
-"[javascript][javascriptreact][typescript][typescriptreact]": {
-  "editor.formatOnSave": false
-},
-// tell the ESLint plugin to run on save
-"editor.codeActionsOnSave": {
-  "source.fixAll.eslint": true
-},
-```
+- **Platform APIs**: React Native specific validations
+- **Performance**: Mobile-specific optimizations
+- **Styling**: StyleSheet and styling best practices
 
-After attempting to lint your file for the first time, you may need to click on 'ESLint' in the bottom right and select 'Allow Everywhere' in the alert window.
+## 🚨 Common Issues
 
-Finally you'll usually need to restart VS code. They say you don't need to, but it's never worked for me until I restart.
+### Flat Config Not Recognized
 
-## With WSL
+Ensure you're using ESLint v8.21.0 or higher and your config file is named `eslint.config.js`.
 
-It should work as above.
+### TypeScript Parsing Errors
+
+Make sure your `tsconfig.json` is valid and includes all TypeScript files you want to lint.
+
+### Import Resolution Issues
+
+The config includes TypeScript and Node.js import resolvers. For custom path mapping, update your `tsconfig.json` with proper `paths` configuration.
+
+### Performance Issues
+
+For large projects, consider using `projectService` in your TypeScript parser options or implementing incremental linting.
+
+## 🤝 Contributing
+
+Issues and pull requests are welcome! Please ensure your contributions:
+
+- Follow the existing code style
+- Include appropriate tests
+- Update documentation as needed
+- Follow semantic versioning for changes
+
+## 📄 License
+
+MIT © [Theodros Yimer](https://github.com/theodrosyimer)
+
+## 🔗 Related Projects
+
+- [ESLint](https://eslint.org/) - Pluggable JavaScript linter
+- [Prettier](https://prettier.io/) - Opinionated code formatter
+- [TypeScript ESLint](https://typescript-eslint.io/) - TypeScript support for ESLint
+- [React ESLint Plugin](https://github.com/jsx-eslint/eslint-plugin-react) - React specific linting rules
