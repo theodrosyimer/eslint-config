@@ -1,7 +1,7 @@
 name: Release and Publish
 on:
   workflow_run:
-    workflows: ["Lint and Build"]
+    workflows: ["Format"]
     types: [completed]
     branches:
       - main
