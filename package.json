@@ -16,7 +16,7 @@
   "license": "MIT",
   "eslintConfig": {
     "extends": [
-      "./.eslintrc.cjs"
+      "./.eslintrc.js"
     ]
   },
   "type": "module",
