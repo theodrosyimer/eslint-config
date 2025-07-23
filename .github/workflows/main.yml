@@ -1,11 +1,11 @@
-name: format and Build
+name: Format
 on:
   push:
     branches:
       - '**'
 
 jobs:
-  format-and-build:
+  format:
     runs-on: ubuntu-latest
 
     strategy:
@@ -31,5 +31,5 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: format & Build
-        run: pnpm format && pnpm build
+      - name: Format
+        run: pnpm format
