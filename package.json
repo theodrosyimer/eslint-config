@@ -1,13 +1,15 @@
 {
   "name": "@thyi/eslint-config",
   "version": "2.0.3",
-  "description": "ESLint and Prettier Config for JavaScript and Typescript",
+  "description": "ESLint Config for JavaScript, Typescript, React, React Native",
   "keywords": [
     "javascript",
     "typescript",
     "ecmascript",
     "eslint",
     "prettier",
+    "react",
+    "react-native",
     "lint",
     "config"
   ],
