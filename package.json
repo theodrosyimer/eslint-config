@@ -19,6 +19,7 @@
       "./.eslintrc.cjs"
     ]
   },
+  "type": "module",
   "publishConfig": {
     "access": "public",
     "tag": "latest"
@@ -26,40 +27,34 @@
   "scripts": {
     "lint": "eslint . --fix",
     "lint:show": "eslint . --color",
-    "preinstall": "node ./install.js",
     "release": "release-it"
   },
   "peerDependencies": {
-    "eslint": "^8.56.0",
-    "prettier": "^3.1.1",
-    "typescript": "^5.3.3"
+    "eslint": "^9.31.0",
+    "prettier": "^3.6.2",
+    "typescript": "^5.8.3"
   },
   "dependencies": {
-    "@babel/eslint-parser": "^7.26.8",
-    "@babel/preset-react": "^7.26.3",
-    "@react-native-community/eslint-config": "^3.2.0",
-    "@release-it/conventional-changelog": "^10.0.0",
-    "@rushstack/eslint-patch": "^1.10.5",
+    "@eslint/js": "^9.31.0",
+    "@release-it/conventional-changelog": "^10.0.1",
     "@types/eslint": "^9.6.1",
-    "@types/node": "^22.13.8",
-    "@types/react": "~19.0.10",
-    "@typescript-eslint/eslint-plugin": "^8.25.0",
-    "@typescript-eslint/parser": "^8.25.0",
-    "dotenv": "^16.4.7",
-    "eslint-config-prettier": "^10.0.2",
-    "eslint-plugin-babel": "^5.3.1",
-    "eslint-plugin-html": "^8.1.2",
-    "eslint-plugin-import": "^2.31.0",
-    "eslint-plugin-jsx-a11y": "^6.10.2",
-    "eslint-plugin-prettier": "^5.2.3",
-    "eslint": "^8.57.1",
-    "eslint-plugin-react": "^7.37.4",
+    "@types/node": "^24.1.0",
+    "@types/react": "~19.1.8",
+    "@typescript-eslint/eslint-plugin": "^8.38.0",
+    "@typescript-eslint/parser": "^8.38.0",
+    "dotenv": "^17.2.0",
+    "eslint": "^9.31.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-native": "^5.0.0",
-    "release-it": "^18.1.2"
+    "globals": "^16.3.0",
+    "release-it": "^19.0.4",
+    "typescript-eslint": "^8.38.0"
   },
   "devDependencies": {
-    "prettier": "^3.5.2"
+    "prettier": "^3.6.2"
   },
-  "packageManager": "pnpm@10.5.2"
+  "packageManager": "pnpm@10.13.1"
 }
