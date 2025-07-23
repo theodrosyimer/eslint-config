@@ -114,7 +114,7 @@ Ensure your `tsconfig.json` is properly configured:
     "lib": ["ES2022"],
     "module": "ESNext",
     "moduleResolution": "node",
-    "jsx": "react",
+    "jsx": "react-jsx",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
@@ -196,7 +196,7 @@ This approach gives you maximum flexibility while avoiding the performance overh
   "[javascript][javascriptreact][typescript][typescriptreact]": {
     "editor.formatOnSave": false
   },
-  "eslint.experimental.useFlatConfig": true
+  "eslint.useFlatConfig": true
 }
 ```
 
