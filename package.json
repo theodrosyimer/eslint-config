@@ -25,8 +25,7 @@
     "tag": "latest"
   },
   "scripts": {
-    "lint": "eslint . --fix",
-    "lint:show": "eslint . --color",
+    "format": "prettier --write .",
     "release": "release-it"
   },
   "peerDependencies": {
