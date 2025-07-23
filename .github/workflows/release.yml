@@ -21,7 +21,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [20]
+        node-version: [22, 24]
 
     steps:
       - name: Checkout
@@ -40,10 +40,8 @@ jobs:
         run: npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
 
       - name: Install pnpm
-        uses: pnpm/action-setup@v3
+        uses: pnpm/action-setup@v4
         id: pnpm-install
-        with:
-          version: 8
 
       - name: Install Node.js
         uses: actions/setup-node@v4
@@ -53,6 +51,11 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
+
+      - name: Format and lint
+        run: |
+          pnpm format
+          pnpm lint
 
       - name: Release and Publish
         env:

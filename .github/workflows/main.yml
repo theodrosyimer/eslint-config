@@ -31,5 +31,5 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Format
+      - name: Run Prettier
         run: pnpm format
