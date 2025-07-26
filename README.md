@@ -67,7 +67,7 @@ The configuration automatically detects TypeScript files and applies appropriate
 
 ### Package.json Scripts
 
-Add these scripts to your `package.json`:
+If you want to run eslint from the command line, add these scripts to your `package.json`:
 
 ```json
 {
@@ -141,6 +141,8 @@ The configuration automatically ignores common build directories:
 - `.next/`
 - `build/`
 - `dist/`
+- `coverage/`
+- `html/`
 - `node_modules/`
 - `babel.config.js`
 - `metro.config.js`
