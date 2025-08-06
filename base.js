@@ -98,7 +98,7 @@ export const baseRules = {
       groups: [['builtin'], ['external'], ['internal'], ['parent', 'sibling', 'index']],
       pathGroups: [
         {
-          pattern: '@/*',
+          pattern: '@/**',
           group: 'internal',
           position: 'after',
         },
