@@ -1,5 +1,5 @@
-require('dotenv').config()
+export { default as nodeConfig } from './node.js'
+export { default as reactConfig } from './react.js'
 
-const eslintrc = require('./.eslintrc.cjs')
-
-module.exports = eslintrc
+// Default export (Node.js config)
+export { default } from './node.js'
