@@ -10,6 +10,7 @@
 
 - **🔧 Zero-config setup** - Works out of the box with sensible defaults
 - **⚡ Modern ESLint Flat Config** - Uses the latest ESLint configuration format
+- **🎯 Dual configurations** - Separate configs for Node.js and React/React Native projects
 - **📱 React & React Native** - Full support for React applications and React Native projects
 - **🔷 TypeScript-first** - Comprehensive TypeScript support with type-aware linting
 - **🎨 Prettier integration** - Seamless code formatting with Prettier
@@ -18,15 +19,22 @@
 
 ## 📋 What's Included
 
-This configuration includes opinionated settings for:
+This package provides two specialized configurations:
 
+### **Default Configuration** (Node.js)
 - **ESLint Core Rules** - Latest JavaScript/ES2022+ standards
 - **TypeScript** - Type-aware linting with `@typescript-eslint`
-- **React** - JSX, hooks, and React best practices
-- **React Native** - Platform-specific rules and optimizations
+- **Node.js Globals** - Built-in Node.js and Jest globals
 - **Import Management** - Organized imports with `eslint-plugin-import`
 - **Code Formatting** - Prettier integration with consistent styling
 - **Performance** - Rules optimized for modern JavaScript engines
+
+### **React Configuration** (React/React Native)
+- **Everything from Default** - Plus React-specific features
+- **React Rules** - JSX, hooks, and React best practices
+- **React Native** - Platform-specific rules and optimizations
+- **React Hooks** - Comprehensive hooks linting
+- **React Native Globals** - Mobile-specific globals and APIs
 
 ## 🚀 Quick Start
 
@@ -43,19 +51,12 @@ pnpm add -D @thyi/eslint-config
 yarn add --dev @thyi/eslint-config
 ```
 
-### Basic JavaScript/React Setup
+### Configuration Options
 
-Create an `eslint.config.js` file in your project root:
+This package provides two configurations:
 
-```js
-import config from '@thyi/eslint-config'
-
-export default config
-```
-
-### TypeScript Setup
-
-For TypeScript projects, ensure you have a `tsconfig.json` file, then use the same configuration:
+#### 1. **Default (Node.js) Configuration**
+For **Node.js projects**, backend APIs, CLI tools, or any non-React JavaScript/TypeScript project:
 
 ```js
 import config from '@thyi/eslint-config'
@@ -63,7 +64,48 @@ import config from '@thyi/eslint-config'
 export default config
 ```
 
-The configuration automatically detects TypeScript files and applies appropriate rules.
+#### 2. **React Configuration**
+For **React applications**, React Native projects, or any project using React:
+
+```js
+import config from '@thyi/eslint-config/react'
+
+export default config
+```
+
+### When to Use Which Configuration?
+
+| Project Type | Use | Example |
+|-------------|-----|---------|
+| **Node.js API** | Default | `import config from '@thyi/eslint-config'` |
+| **CLI Tools** | Default | `import config from '@thyi/eslint-config'` |
+| **Backend Services** | Default | `import config from '@thyi/eslint-config'` |
+| **React Web Apps** | React | `import config from '@thyi/eslint-config/react'` |
+| **React Native Apps** | React | `import config from '@thyi/eslint-config/react'` |
+| **Next.js Apps** | React | `import config from '@thyi/eslint-config/react'` |
+| **Expo Apps** | React | `import config from '@thyi/eslint-config/react'` |
+
+### TypeScript Support
+
+Both configurations include full TypeScript support. Ensure you have a `tsconfig.json` file in your project root:
+
+```json
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022"],
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "jsx": "react-jsx",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
+}
+```
 
 ### Package.json Scripts
 
@@ -86,6 +128,7 @@ If you want to run eslint from the command line, add these scripts to your `pack
 To override or extend rules, modify your `eslint.config.js`:
 
 ```js
+// For Node.js projects
 import baseConfig from '@thyi/eslint-config'
 
 export default [
@@ -95,8 +138,24 @@ export default [
       // Override specific rules
       'no-console': 'error',
       '@typescript-eslint/no-unused-vars': 'error',
+    }
+  }
+]
+```
 
-      // Disable rules you don't want
+```js
+// For React projects
+import baseConfig from '@thyi/eslint-config/react'
+
+export default [
+  ...baseConfig,
+  {
+    rules: {
+      // Override specific rules
+      'no-console': 'error',
+      '@typescript-eslint/no-unused-vars': 'error',
+
+      // Disable React rules you don't want
       'react-native/no-inline-styles': 'off'
     }
   }
@@ -135,7 +194,7 @@ The configuration includes intelligent overrides for different file types:
 
 ### File Ignoring
 
-The configuration automatically ignores common build directories:
+The configuration automatically ignores common build directories and files:
 
 - `.expo/`
 - `.next/`
@@ -157,7 +216,7 @@ This ESLint configuration is **Prettier-friendly** but doesn't enforce Prettier 
 
 ### Setting up Prettier
 
-Create a `.prettierrc` file in your project root with your preferred settings:
+Create a `.prettierrc` or `prettier.config.js` file in your project root with your preferred settings:
 
 ```json
 {
