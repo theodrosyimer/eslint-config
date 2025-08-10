@@ -14,18 +14,18 @@
 - **📱 React & React Native** - Full support for React applications and React Native projects
 - **🔷 TypeScript-first** - Comprehensive TypeScript support with type-aware linting
 - **🎨 Prettier integration** - Seamless code formatting with Prettier
-- **📦 Import organization** - Automatic import sorting and grouping
+- **📦 Import organization** - Automatic import sorting and grouping with TypeScript support
 - **🚀 Performance optimized** - Minimal overhead with intelligent rule selection
 
 ## 📋 What's Included
 
 This package provides two specialized configurations:
 
-### **Default Configuration** (Node.js)
+### **Default Configuration**
 - **ESLint Core Rules** - Latest JavaScript/ES2022+ standards
 - **TypeScript** - Type-aware linting with `@typescript-eslint`
 - **Node.js Globals** - Built-in Node.js and Jest globals
-- **Import Management** - Organized imports with `eslint-plugin-import`
+- **Import Management** - Organized imports with `eslint-plugin-import` and `eslint-import-resolver-typescript`
 - **Code Formatting** - Prettier integration with consistent styling
 - **Performance** - Rules optimized for modern JavaScript engines
 
@@ -40,25 +40,30 @@ This package provides two specialized configurations:
 
 ### Installation
 
+
 ```bash
-# npm
-npm install --save-dev @thyi/eslint-config
-
-# pnpm (recommended)
 pnpm add -D @thyi/eslint-config
+```
 
-# yarn
+```bash
+npm install --save-dev @thyi/eslint-config
+```
+
+```bash
 yarn add --dev @thyi/eslint-config
 ```
 
-### Configuration Options
+```bash
+bun add --dev @thyi/eslint-config
+```
 
-This package provides two configurations:
+### Configuration
 
 #### 1. **Default (Node.js) Configuration**
 For **Node.js projects**, backend APIs, CLI tools, or any non-React JavaScript/TypeScript project:
 
 ```js
+// eslint.config.js
 import config from '@thyi/eslint-config'
 
 export default config
@@ -68,6 +73,7 @@ export default config
 For **React applications**, React Native projects, or any project using React:
 
 ```js
+// eslint.config.js
 import config from '@thyi/eslint-config/react'
 
 export default config
@@ -77,39 +83,49 @@ export default config
 
 | Project Type | Use | Example |
 |-------------|-----|---------|
-| **Node.js API** | Default | `import config from '@thyi/eslint-config'` |
+| **Node.js APIs** | Default | `import config from '@thyi/eslint-config'` |
 | **CLI Tools** | Default | `import config from '@thyi/eslint-config'` |
 | **Backend Services** | Default | `import config from '@thyi/eslint-config'` |
+| **Browser Libraries** | Default | `import config from '@thyi/eslint-config'` |
+| **Vanilla JS/TS Apps** | Default | `import config from '@thyi/eslint-config'` |
+| **Build Tools/Scripts** | Default | `import config from '@thyi/eslint-config'` |
 | **React Web Apps** | React | `import config from '@thyi/eslint-config/react'` |
-| **React Native Apps** | React | `import config from '@thyi/eslint-config/react'` |
 | **Next.js Apps** | React | `import config from '@thyi/eslint-config/react'` |
+| **React Native Apps** | React | `import config from '@thyi/eslint-config/react'` |
 | **Expo Apps** | React | `import config from '@thyi/eslint-config/react'` |
+
+**Simple rule**: Use **React config** for React projects, **Default config** for everything else.
 
 ### TypeScript Support
 
-Both configurations include full TypeScript support. Ensure you have a `tsconfig.json` file in your project root:
+Both configurations include full TypeScript support. You **must** have a `tsconfig.json` file in your project root:
 
 ```json
 {
   "compilerOptions": {
     "target": "ES2022",
     "lib": ["ES2022"],
-    "module": "ESNext",
-    "moduleResolution": "node",
-    "jsx": "react-jsx",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "allowJs": true,
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["src/**/*"],
+  "include": [
+    "src/**/*",
+    "tests/**/*",
+    "*.config.js",
+    "*.config.ts"
+  ],
   "exclude": ["node_modules", "dist"]
 }
 ```
 
 ### Package.json Scripts
 
-If you want to run eslint from the command line, add these scripts to your `package.json`:
+Add these scripts to your `package.json`:
 
 ```json
 {
@@ -125,10 +141,10 @@ If you want to run eslint from the command line, add these scripts to your `pack
 
 ### Custom Rules Override
 
-To override or extend rules, modify your `eslint.config.js`:
+To override or extend rules:
 
 ```js
-// For Node.js projects
+// For Non-React projects
 import baseConfig from '@thyi/eslint-config'
 
 export default [
@@ -154,34 +170,10 @@ export default [
       // Override specific rules
       'no-console': 'error',
       '@typescript-eslint/no-unused-vars': 'error',
-
-      // Disable React rules you don't want
       'react-native/no-inline-styles': 'off'
     }
   }
 ]
-```
-
-### TypeScript Project Configuration
-
-Ensure your `tsconfig.json` is properly configured:
-
-```json
-{
-  "compilerOptions": {
-    "target": "ES2022",
-    "lib": ["ES2022"],
-    "module": "ESNext",
-    "moduleResolution": "node",
-    "jsx": "react-jsx",
-    "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
-  },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "dist"]
-}
 ```
 
 ### Environment-Specific Overrides
@@ -216,7 +208,7 @@ This ESLint configuration is **Prettier-friendly** but doesn't enforce Prettier 
 
 ### Setting up Prettier
 
-Create a `.prettierrc` or `prettier.config.js` file in your project root with your preferred settings:
+Use any Prettier configuration format (`.prettierrc.js`, `prettier.config.js`, etc.) in your project root with your preferred settings:
 
 ```json
 {
@@ -229,8 +221,6 @@ Create a `.prettierrc` or `prettier.config.js` file in your project root with yo
   "trailingComma": "all"
 }
 ```
-
-Or use any other Prettier configuration format (`.prettierrc.js`, `prettier.config.js`, etc.).
 
 ### Recommended Workflow
 
@@ -313,6 +303,45 @@ The config includes TypeScript and Node.js import resolvers. For custom path map
 ### Performance Issues
 
 For large projects, consider using `projectService` in your TypeScript parser options or implementing incremental linting.
+
+### "Project service not found" Errors
+
+**Using JavaScript config files** (`eslint.config.js`, `vite.config.js`, etc.):
+
+Ensure your `tsconfig.json` includes JavaScript files and has `allowJs: true`:
+
+```json
+{
+  "compilerOptions": {
+    "allowJs": true,
+    // ... other options
+  },
+  "include": [
+    "src/**/*",
+    "tests/**/*",
+    "*.config.js",        // Include config files
+    "*.config.ts"         // Include TypeScript config files too
+  ]
+}
+```
+
+**Alternative**: Create a dedicated `tsconfig.eslint.json` that extends your main config:
+
+```json
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "allowJs": true
+  },
+  "include": [
+    "src/**/*",
+    "tests/**/*",
+    "eslint.config.js",
+    "vite.config.js",
+    "*.config.js"
+  ]
+}
+```
 
 ## 🤝 Contributing
 
