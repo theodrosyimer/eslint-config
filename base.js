@@ -130,7 +130,7 @@ export const baseOverrides = [
     // JavaScript-specific overrides
     files: ['**/*.js', '**/*.cjs', '**/*.mjs'],
     rules: {
-      ...tseslint.configs.disableTypeChecked,
+      ...tseslint.configs.disableTypeChecked.rules,
     },
   },
 ]
