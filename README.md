@@ -15,7 +15,6 @@
 - **🔷 TypeScript-first** - Comprehensive TypeScript support with type-aware linting
 - **🎨 Prettier integration** - Seamless code formatting with Prettier
 - **📦 Import organization** - Automatic import sorting and grouping with TypeScript support
-- **🚀 Performance optimized** - Minimal overhead with intelligent rule selection
 
 ## 📋 What's Included
 
