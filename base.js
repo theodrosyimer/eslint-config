@@ -27,13 +27,7 @@ export const baseLanguageOptions = {
   parser: tsParser,
   ecmaVersion: 'latest',
   sourceType: 'module',
-  parserOptions: {
-    projectService: {
-      allowDefaultProject: ['*.js', '*.cjs', '*.mjs'],
-    },
-    tsconfigRootDir: import.meta.dirname,
-    project: ['./tsconfig.eslint.json'],
-  },
+  parserOptions: {},
 }
 
 export const baseSettings = {

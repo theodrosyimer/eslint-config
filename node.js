@@ -19,7 +19,14 @@ export default tseslint.config(
       typescriptEslint,
       eslintPluginImport,
     },
-    languageOptions: baseLanguageOptions,
+    languageOptions: {
+      ...baseLanguageOptions,
+      parserOptions: {
+        ...baseLanguageOptions.parserOptions,
+        tsconfigRootDir: import.meta.dirname,
+        project: ['./tsconfig.eslint.json'],
+      },
+    },
     settings: baseSettings,
     rules: {
       ...baseRules,
@@ -32,10 +39,7 @@ export default tseslint.config(
       '@typescript-eslint/no-require-imports': [
         'error',
         {
-          allow: ['package.json', 'path', 'zod', 'dotenv'],
-        },
-        {
-          allowModules: ['@/scripts/*'],
+          allow: ['package.json', 'path', 'zod', 'dotenv', '@/scripts/*'],
         },
       ],
     },

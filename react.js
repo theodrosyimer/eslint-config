@@ -34,6 +34,11 @@ export default tseslint.config(
         ...baseLanguageOptions.globals,
         ...reactNative.environments['react-native']['react-native'],
       },
+      parserOptions: {
+        ...baseLanguageOptions.parserOptions,
+        tsconfigRootDir: import.meta.dirname,
+        project: ['./tsconfig.eslint.json'],
+      },
     },
     env: {
       'react-native/react-native': true,
@@ -65,6 +70,7 @@ export default tseslint.config(
         {
           allow: [
             '.*assets/*',
+            '@/scripts/*',
             'nativewind/preset',
             'nativewind/theme',
             'nativewind/theme/hairlineWidth',
@@ -74,9 +80,6 @@ export default tseslint.config(
             'zod',
             'dotenv',
           ],
-        },
-        {
-          allowModules: ['@/scripts/*'],
         },
       ],
     },
