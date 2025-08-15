@@ -58,7 +58,7 @@ export default tseslint.config(
             {
               from: 'package',
               name: ['preventAutoHideAsync', 'hideAsync'],
-              package: 'expo-splash-screen',
+              package: 'expo-router',
             },
             { from: 'package', name: 'init', package: 'i18next' },
             { from: 'file', name: 'invalidateQueries' },
