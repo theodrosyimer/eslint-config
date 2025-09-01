@@ -46,6 +46,7 @@ export const baseRules = {
     },
   ],
   'no-await-in-loop': 'off',
+  'no-use-before-define': ['error', { functions: false }],
   '@typescript-eslint/array-type': 'off',
   '@typescript-eslint/consistent-type-definitions': 'off',
   '@typescript-eslint/consistent-type-imports': [
