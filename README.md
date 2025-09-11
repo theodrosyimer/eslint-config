@@ -21,6 +21,7 @@
 This package provides two specialized configurations:
 
 ### **Default Configuration**
+
 - **ESLint Core Rules** - Latest JavaScript/ES2022+ standards
 - **TypeScript** - Type-aware linting with `@typescript-eslint`
 - **Node.js Globals** - Built-in Node.js and Jest globals
@@ -29,6 +30,7 @@ This package provides two specialized configurations:
 - **Performance** - Rules optimized for modern JavaScript engines
 
 ### **React Configuration** (React/React Native)
+
 - **Everything from Default** - Plus React-specific features
 - **React Rules** - JSX, hooks, and React best practices
 - **React Native** - Platform-specific rules and optimizations
@@ -38,7 +40,6 @@ This package provides two specialized configurations:
 ## 🚀 Quick Start
 
 ### Installation
-
 
 ```bash
 pnpm add -D @thyi/eslint-config
@@ -59,6 +60,7 @@ bun add --dev @thyi/eslint-config
 ### Configuration
 
 #### 1. **Default (Node.js) Configuration**
+
 For **Node.js projects**, backend APIs, CLI tools, or any non-React JavaScript/TypeScript project:
 
 ```js
@@ -69,6 +71,7 @@ export default config
 ```
 
 #### 2. **React Configuration**
+
 For **React applications**, React Native projects, or any project using React:
 
 ```js
@@ -80,18 +83,18 @@ export default config
 
 ### When to Use Which Configuration?
 
-| Project Type | Use | Example |
-|-------------|-----|---------|
-| **Node.js APIs** | Default | `import config from '@thyi/eslint-config'` |
-| **CLI Tools** | Default | `import config from '@thyi/eslint-config'` |
-| **Backend Services** | Default | `import config from '@thyi/eslint-config'` |
-| **Browser Libraries** | Default | `import config from '@thyi/eslint-config'` |
-| **Vanilla JS/TS Apps** | Default | `import config from '@thyi/eslint-config'` |
-| **Build Tools/Scripts** | Default | `import config from '@thyi/eslint-config'` |
-| **React Web Apps** | React | `import config from '@thyi/eslint-config/react'` |
-| **Next.js Apps** | React | `import config from '@thyi/eslint-config/react'` |
-| **React Native Apps** | React | `import config from '@thyi/eslint-config/react'` |
-| **Expo Apps** | React | `import config from '@thyi/eslint-config/react'` |
+| Project Type            | Use     | Example                                          |
+| ----------------------- | ------- | ------------------------------------------------ |
+| **Node.js APIs**        | Default | `import config from '@thyi/eslint-config'`       |
+| **CLI Tools**           | Default | `import config from '@thyi/eslint-config'`       |
+| **Backend Services**    | Default | `import config from '@thyi/eslint-config'`       |
+| **Browser Libraries**   | Default | `import config from '@thyi/eslint-config'`       |
+| **Vanilla JS/TS Apps**  | Default | `import config from '@thyi/eslint-config'`       |
+| **Build Tools/Scripts** | Default | `import config from '@thyi/eslint-config'`       |
+| **React Web Apps**      | React   | `import config from '@thyi/eslint-config/react'` |
+| **Next.js Apps**        | React   | `import config from '@thyi/eslint-config/react'` |
+| **React Native Apps**   | React   | `import config from '@thyi/eslint-config/react'` |
+| **Expo Apps**           | React   | `import config from '@thyi/eslint-config/react'` |
 
 **Simple rule**: Use **React config** for React projects, **Default config** for everything else.
 
@@ -112,12 +115,7 @@ Both configurations include full TypeScript support. You **must** have a `tsconf
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
   },
-  "include": [
-    "src/**/*",
-    "tests/**/*",
-    "*.config.js",
-    "*.config.ts"
-  ],
+  "include": ["src/**/*", "tests/**/*", "*.config.js", "*.config.ts"],
   "exclude": ["node_modules", "dist"]
 }
 ```
@@ -153,8 +151,8 @@ export default [
       // Override specific rules
       'no-console': 'error',
       '@typescript-eslint/no-unused-vars': 'error',
-    }
-  }
+    },
+  },
 ]
 ```
 
@@ -169,9 +167,9 @@ export default [
       // Override specific rules
       'no-console': 'error',
       '@typescript-eslint/no-unused-vars': 'error',
-      'react-native/no-inline-styles': 'off'
-    }
-  }
+      'react-native/no-inline-styles': 'off',
+    },
+  },
 ]
 ```
 
@@ -312,14 +310,14 @@ Ensure your `tsconfig.json` includes JavaScript files and has `allowJs: true`:
 ```json
 {
   "compilerOptions": {
-    "allowJs": true,
+    "allowJs": true
     // ... other options
   },
   "include": [
     "src/**/*",
     "tests/**/*",
-    "*.config.js",        // Include config files
-    "*.config.ts"         // Include TypeScript config files too
+    "*.config.js", // Include config files
+    "*.config.ts" // Include TypeScript config files too
   ]
 }
 ```
@@ -332,13 +330,7 @@ Ensure your `tsconfig.json` includes JavaScript files and has `allowJs: true`:
   "compilerOptions": {
     "allowJs": true
   },
-  "include": [
-    "src/**/*",
-    "tests/**/*",
-    "eslint.config.js",
-    "vite.config.js",
-    "*.config.js"
-  ]
+  "include": ["src/**/*", "tests/**/*", "eslint.config.js", "vite.config.js", "*.config.js"]
 }
 ```
 
