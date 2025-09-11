@@ -1,18 +1,21 @@
 /**
  * @see https://prettier.io/docs/configuration
- * @type {import('prettier').Config} */
+ * @type {import('prettier').Config}
+ * @see https://github.com/kurttheviking/prettier-plugin-pkg
+ */
 const config = {
-  arrowParens: "always",
+  arrowParens: 'always',
   bracketSpacing: true,
-  endOfLine: "lf",
+  endOfLine: 'lf',
   experimentalTernaries: false,
   jsxSingleQuote: true,
   printWidth: 100,
-  proseWrap: "preserve",
+  proseWrap: 'preserve',
   semi: false,
   singleAttributePerLine: false,
   singleQuote: true,
-  trailingComma: "all",
+  trailingComma: 'all',
+  plugins: ['prettier-plugin-pkg'],
 }
 
 export default config
