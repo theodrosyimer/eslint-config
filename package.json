@@ -2,6 +2,26 @@
   "name": "@thyi/eslint-config",
   "version": "2.3.1",
   "description": "ESLint Config for JavaScript, Typescript, React, React Native",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theodrosyimer/eslint-config.git"
+  },
+  "homepage": "https://github.com/theodrosyimer/eslint-config#readme",
+  "bugs": {
+    "url": "https://github.com/theodrosyimer/eslint-config/issues"
+  },
+  "author": "Theodros Yimer",
+  "license": "MIT",
+  "packageManager": "pnpm@10.15.1",
+  "engines": {
+    "node": "22.19.0"
+  },
+  "main": "index.js",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": "./index.js",
+    "./react": "./react.js"
+  },
   "keywords": [
     "javascript",
     "typescript",
@@ -13,36 +33,17 @@
     "lint",
     "config"
   ],
-  "main": "index.js",
-  "types": "./index.d.ts",
-  "exports": {
-    ".": "./index.js",
-    "./react": "./react.js"
-  },
-  "author": "Theodros Yimer",
-  "license": "MIT",
-  "eslintConfig": {
-    "extends": [
-      "./.eslintrc.js"
-    ]
-  },
-  "type": "module",
-  "publishConfig": {
-    "access": "public",
-    "tag": "latest"
-  },
   "scripts": {
-    "format": "prettier --write .",
+    "format": "prettier --write . --ignore-path .gitignore --ignore-path .prettierignore",
     "release": "release-it"
   },
   "peerDependencies": {
-    "eslint": "^9.31.0",
+    "eslint": "^9.35.0",
     "prettier": "^3.6.2",
     "typescript": "^5.8.3"
   },
   "dependencies": {
     "@eslint/js": "^9.35.0",
-    "@release-it/conventional-changelog": "^10.0.1",
     "@types/eslint": "^9.6.1",
     "@types/node": "^24.3.1",
     "@types/react": "~19.1.12",
@@ -56,14 +57,21 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-native": "^5.0.0",
     "globals": "^16.4.0",
-    "release-it": "^19.0.4",
     "typescript-eslint": "^8.43.0"
   },
   "devDependencies": {
-    "prettier": "^3.6.2"
+    "@release-it/conventional-changelog": "^10.0.1",
+    "prettier": "^3.6.2",
+    "prettier-plugin-pkg": "^0.21.2",
+    "release-it": "^19.0.4"
   },
-  "packageManager": "pnpm@10.15.1",
-  "engines": {
-    "node": ">=20.0.0"
+  "publishConfig": {
+    "access": "public",
+    "tag": "latest"
+  },
+  "eslintConfig": {
+    "extends": [
+      "./.eslintrc.js"
+    ]
   }
 }
