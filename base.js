@@ -47,6 +47,12 @@ export const baseRules = {
   ],
   'no-await-in-loop': 'off',
   'no-use-before-define': ['error', { functions: false }],
+  'preserve-caught-error': [
+    'error',
+    {
+      requireCatchParameter: true,
+    },
+  ],
   '@typescript-eslint/array-type': 'off',
   '@typescript-eslint/consistent-type-definitions': 'off',
   '@typescript-eslint/consistent-type-imports': [
