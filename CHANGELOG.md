@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.3.2](https://github.com/theodrosyimer/eslint-config/compare/2.3.1...2.3.2) (2025-09-11)
+
+### 💎 Style Changes
+
+* format using prettier ([156387d](https://github.com/theodrosyimer/eslint-config/commit/156387dbc9d691c4dcba5a068dc6278b89161586))
+
 ## [2.3.1](https://github.com/theodrosyimer/eslint-config/compare/2.3.0...2.3.1) (2025-09-11)
 
 ## [2.3.0](https://github.com/theodrosyimer/eslint-config/compare/2.2.0...2.3.0) (2025-09-11)
