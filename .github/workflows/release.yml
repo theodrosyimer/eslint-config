@@ -1,13 +1,11 @@
 name: Release and Publish
+
 on:
   workflow_run:
-    workflows: ["Format"]
+    workflows: ['Format']
     types: [completed]
     branches:
       - main
-  # pull_request:
-  #   branches:
-  #     - main
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
@@ -17,11 +15,7 @@ jobs:
 
     permissions:
       contents: write
-      # pull-requests: write
-
-    strategy:
-      matrix:
-        node-version: [20]
+      id-token: write
 
     steps:
       - name: Checkout
@@ -31,32 +25,47 @@ jobs:
 
       - name: Set Git User
         run: |
-          git config user.name "${{ secrets.GH_USERNAME }}"
-          git config user.email "${{ secrets.GH_MAIL_USERNAME_ID }}@users.noreply.github.com"
-
-      - name: Set NPM TOKEN
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-        id: pnpm-install
+          git config user.name "${{ github.actor }}"
+          git config user.email "${{ github.actor }}@users.noreply.github.com"
 
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'pnpm'
+          node-version: '22.19.0'
+
+      - name: Upgrade to Latest NPM CLI
+        run: npm install -g npm@latest
+
+      - name: Verify NPM CLI for Trusted Publishing
+        run: |
+          npm_version=$(npm --version)
+          echo "NPM CLI version: $npm_version"
+
+          [ "$(printf '%s\n' '11.5.1' '$npm_version' | sort -V | head -n1)" = "11.5.1" ] && {
+            echo "✅ NPM CLI $npm_version supports trusted publishing"
+          } || {
+            echo "❌ Installation of latest NPM failed or version insufficient for trusted publishing"
+            echo "❌ Current version: $npm_version (required: 11.5.1+)"
+            echo "❌ Try manually upgrading: npm install -g npm@latest"
+            exit 1
+          }
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
       - name: Release and Publish
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: pnpm release --ci
 
-      - name: End
-        run: echo "Done!"
+      - name: Publish
+        run: pnpm publish --access public
+
+      - name: Verify Provenance
+        run: |
+          PACKAGE_NAME=$(node -p "require('./package.json').name")
+          echo "✅ Package published with automatic provenance"
+          echo "🔍 Verify at: https://npmjs.com/package/$PACKAGE_NAME"

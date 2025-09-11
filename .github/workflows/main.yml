@@ -1,35 +1,32 @@
 name: Format
+
 on:
   push:
-    branches:
-      - '**'
+    branches: ['**']
+  pull_request:
+    branches: ['**']
 
 jobs:
-  format:
+  ci:
+    name: Package CI
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [20, 22, 24]
-
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-        id: pnpm-install
-
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'pnpm'
+          node-version: '22.19.0'
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Run Prettier
-        run: pnpm format
+      - name: Lint package code
+        run: pnpm run format
