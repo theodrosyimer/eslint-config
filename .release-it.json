@@ -1,18 +1,30 @@
 {
+  "$schema": "https://unpkg.com/release-it@19/schema/release-it.json",
   "git": {
     "requireBranch": "main",
-    "commitMessage": "chore(release): release v${version}"
+    "commitMessage": "chore(release): release v${version}",
+    "requireUpstream": false,
+    "requireCleanWorkingDir": false
   },
   "hooks": {
     "before:init": [
+      "echo '🚀 Starting secure release process with trusted publishing...'",
       "git pull"
     ],
     "after:bump": [
-      "npx auto-changelog -p"
+      "echo '📦 Version bumped to ${version}, preparing for trusted publish...'"
+    ],
+    "after:npm:publish": [
+      "echo '✅ Package published with automatic provenance attestation'"
+    ],
+    "after:release": [
+      "echo '🎉 Successfully released v${version} with provenance!'",
+      "echo '🔍 Verify provenance at: https://npmjs.com/package/${npm.name}'"
     ]
   },
   "github": {
-    "release": true
+    "release": true,
+    "releaseName": "v${version}"
   },
   "npm": {
     "publish": false,
@@ -21,16 +33,17 @@
   "plugins": {
     "@release-it/conventional-changelog": {
       "infile": "CHANGELOG.md",
+      "header": "# Changelog",
       "preset": {
         "name": "conventionalcommits",
         "types": [
           {
             "type": "feat",
-            "section": "Features"
+            "section": "✨ Features"
           },
           {
             "type": "fix",
-            "section": "Bug Fixes"
+            "section": "🐛 Bug Fixes"
           },
           {
             "type": "chore",
@@ -38,19 +51,19 @@
           },
           {
             "type": "docs",
-            "section": "Documentation"
+            "section": "📚 Documentation"
           },
           {
             "type": "style",
-            "hidden": true
+            "section": "💎 Style Changes"
           },
           {
             "type": "refactor",
-            "hidden": true
+            "section": "♻️ Code Refactoring"
           },
           {
             "type": "perf",
-            "hidden": true
+            "section": "⚡ Performance Improvements"
           },
           {
             "type": "test",
