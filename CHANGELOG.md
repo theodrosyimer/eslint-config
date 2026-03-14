@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.4.0](https://github.com/theodrosyimer/eslint-config/compare/2.3.2...2.4.0) (2026-03-14)
+
+### ✨ Features
+
+* add new internal patterns to baseRules ([832c98c](https://github.com/theodrosyimer/eslint-config/commit/832c98c8f311050b96ee9154821bf778763eb598))
+
 ## [2.3.2](https://github.com/theodrosyimer/eslint-config/compare/2.3.1...2.3.2) (2025-09-11)
 
 ### 💎 Style Changes
