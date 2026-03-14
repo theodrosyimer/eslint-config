@@ -113,6 +113,16 @@ export const baseRules = {
           group: 'internal',
           position: 'after',
         },
+        {
+          pattern: '@docker/**',
+          group: 'internal',
+          position: 'after',
+        },
+        {
+          pattern: '@scripts/**',
+          group: 'internal',
+          position: 'after',
+        },
       ],
       pathGroupsExcludedImportTypes: ['builtin'],
       'newlines-between': 'always',
