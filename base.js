@@ -103,6 +103,16 @@ export const baseRules = {
           group: 'internal',
           position: 'after',
         },
+        {
+          pattern: '#/**',
+          group: 'internal',
+          position: 'after',
+        },
+        {
+          pattern: '~/**',
+          group: 'internal',
+          position: 'after',
+        },
       ],
       pathGroupsExcludedImportTypes: ['builtin'],
       'newlines-between': 'always',
