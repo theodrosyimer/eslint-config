@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.5.0](https://github.com/theodrosyimer/eslint-config/compare/2.4.0...2.5.0) (2026-03-14)
+
+### ✨ Features
+
+* add new internal patterns for docker and scripts to baseRules ([6ed6232](https://github.com/theodrosyimer/eslint-config/commit/6ed62326e61d0adb45a0518b69499ca46005c142))
+
 ## [2.4.0](https://github.com/theodrosyimer/eslint-config/compare/2.3.2...2.4.0) (2026-03-14)
 
 ### ✨ Features
