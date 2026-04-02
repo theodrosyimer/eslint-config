@@ -1,5 +1,7 @@
 # Changelog
 
+## [2.5.1](https://github.com/theodrosyimer/eslint-config/compare/2.5.0...2.5.1) (2026-04-02)
+
 ## [2.5.0](https://github.com/theodrosyimer/eslint-config/compare/2.4.0...2.5.0) (2026-03-14)
 
 ### ✨ Features
