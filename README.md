@@ -246,6 +246,7 @@ This approach gives you maximum flexibility while avoiding the performance overh
 
 ```json
 {
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
