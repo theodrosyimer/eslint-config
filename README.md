@@ -100,23 +100,36 @@ export default config
 
 ### TypeScript Support
 
-Both configurations include full TypeScript support. You **must** have a `tsconfig.json` file in your project root:
+Both configurations include full TypeScript support. You **must** have a `tsconfig.json` file in your project root. Requires TypeScript v6 or higher.
 
 ```json
 {
+  "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
-    "target": "ES2022",
-    "lib": ["ES2022"],
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
-    "allowJs": true,
-    "strict": true,
+    "target": "es2024",
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "sourceMap": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true
+    "declaration": true,
+    "declarationMap": true,
     "esModuleInterop": true,
+    "incremental": false,
+    "isolatedModules": true,
+    "removeComments": true,
+    "resolveJsonModule": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
-  },
-  "include": ["src/**/*", "tests/**/*", "*.config.js", "*.config.ts"],
-  "exclude": ["node_modules", "dist"]
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
+    "useDefineForClassFields": true,
+    "useUnknownInCatchVariables": true,
+    "exactOptionalPropertyTypes": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitOverride": true,
+  }
 }
 ```
 
@@ -127,7 +140,6 @@ Add these scripts to your `package.json`:
 ```json
 {
   "scripts": {
-    "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "lint:check": "eslint . --max-warnings 0"
   }
@@ -142,35 +154,31 @@ To override or extend rules:
 
 ```js
 // For Non-React projects
+import { defineConfig } from 'eslint/config'
 import baseConfig from '@thyi/eslint-config'
 
-export default [
-  ...baseConfig,
-  {
-    rules: {
-      // Override specific rules
-      'no-console': 'error',
-      '@typescript-eslint/no-unused-vars': 'error',
-    },
+export default defineConfig(...baseConfig, {
+  rules: {
+    // Override specific rules
+    'no-console': 'error',
+    '@typescript-eslint/no-unused-vars': 'error',
   },
-]
+})
 ```
 
 ```js
 // For React projects
+import { defineConfig } from 'eslint/config'
 import baseConfig from '@thyi/eslint-config/react'
 
-export default [
-  ...baseConfig,
-  {
-    rules: {
-      // Override specific rules
-      'no-console': 'error',
-      '@typescript-eslint/no-unused-vars': 'error',
-      'react-native/no-inline-styles': 'off',
-    },
+export default defineConfig(...baseConfig, {
+  rules: {
+    // Override specific rules
+    'no-console': 'error',
+    '@typescript-eslint/no-unused-vars': 'error',
+    'react-native/no-inline-styles': 'off',
   },
-]
+})
 ```
 
 ### Environment-Specific Overrides
@@ -215,7 +223,8 @@ Use any Prettier configuration format (`.prettierrc.js`, `prettier.config.js`, e
   "tabWidth": 2,
   "semi": false,
   "endOfLine": "lf",
-  "trailingComma": "all"
+  "trailingComma": "all",
+  ...otherPrettierOptions
 }
 ```
 
@@ -240,11 +249,7 @@ This approach gives you maximum flexibility while avoiding the performance overh
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
-  },
-  "[javascript][javascriptreact][typescript][typescriptreact]": {
-    "editor.formatOnSave": false
-  },
-  "eslint.useFlatConfig": true
+  }
 }
 ```
 
@@ -287,7 +292,7 @@ This approach gives you maximum flexibility while avoiding the performance overh
 
 ### Flat Config Not Recognized
 
-Ensure you're using ESLint v8.21.0 or higher and your config file is named `eslint.config.js`.
+Ensure you're using ESLint v9 or higher and your config file is named `eslint.config.js`.
 
 ### TypeScript Parsing Errors
 
