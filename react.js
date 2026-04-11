@@ -1,9 +1,7 @@
 import { defineConfig } from 'eslint/config'
-import typescriptEslint from '@typescript-eslint/eslint-plugin'
 import react from 'eslint-plugin-react'
 import reactHooks from 'eslint-plugin-react-hooks'
 import reactNative from 'eslint-plugin-react-native'
-import eslintPluginImport from 'eslint-plugin-import'
 
 import {
   baseConfig,
@@ -17,31 +15,23 @@ import {
 export default defineConfig(
   baseConfig,
   ...baseRecommendedConfig,
-  react.configs.recommended,
-  reactHooks.configs.recommended,
-  reactNative.configs.all,
+  react.configs.flat.recommended,
+  reactHooks.configs['recommended-latest'],
   {
     plugins: {
-      typescriptEslint,
-      react,
-      reactNative,
-      reactHooks,
-      eslintPluginImport,
+      'react-native': reactNative,
     },
     languageOptions: {
       ...baseLanguageOptions,
       globals: {
         ...baseLanguageOptions.globals,
-        ...reactNative.environments['react-native']['react-native'],
+        ...reactNative.environments['react-native'].globals,
       },
       parserOptions: {
         ...baseLanguageOptions.parserOptions,
         tsconfigRootDir: import.meta.dirname,
         project: ['./tsconfig.eslint.json'],
       },
-    },
-    env: {
-      'react-native/react-native': true,
     },
     settings: {
       ...baseSettings,
@@ -82,16 +72,19 @@ export default defineConfig(
           ],
         },
       ],
+      // eslint-plugin-react-native v5 has no flat config — these replace reactNative.configs.all (all rules default to 2)
+      'react-native/no-unused-styles': 'error',
+      'react-native/split-platform-components': 'error',
+      'react-native/no-inline-styles': 'error',
+      'react-native/no-color-literals': 'error',
+      'react-native/no-raw-text': 'error',
+      'react-native/no-single-element-style-arrays': 'error',
+      'react-native/sort-styles': 'error',
     },
   },
   [
     ...baseOverrides,
     {
-      parserOptions: {
-        ecmaFeatures: {
-          jsx: true,
-        },
-      },
       files: ['**/*.tsx', '**/*.jsx'],
       rules: {
         'react/react-in-jsx-scope': 'off',
