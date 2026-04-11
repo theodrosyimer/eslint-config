@@ -13,7 +13,7 @@
 - **🎯 Dual configurations** - Separate configs for Node.js and React/React Native projects
 - **📱 React & React Native** - Full support for React applications and React Native projects
 - **🔷 TypeScript-first** - Comprehensive TypeScript support with type-aware linting
-- **🎨 Prettier integration** - Seamless code formatting with Prettier
+- **🎨 Prettier-compatible** - Disables ESLint rules that conflict with Prettier
 - **📦 Import organization** - Automatic import sorting and grouping with TypeScript support
 
 ## 📋 What's Included
