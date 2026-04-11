@@ -27,11 +27,6 @@ export default defineConfig(
         ...baseLanguageOptions.globals,
         ...reactNative.environments['react-native'].globals,
       },
-      parserOptions: {
-        ...baseLanguageOptions.parserOptions,
-        tsconfigRootDir: import.meta.dirname,
-        project: ['./tsconfig.eslint.json'],
-      },
     },
     settings: {
       ...baseSettings,

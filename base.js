@@ -4,6 +4,7 @@ import tsParser from '@typescript-eslint/parser'
 import globals from 'globals'
 import eslintConfigPrettier from 'eslint-config-prettier/flat'
 import eslintPluginImport from 'eslint-plugin-import'
+import onlyWarn from 'eslint-plugin-only-warn'
 
 export const baseConfig = {
   ignores: [
@@ -27,12 +28,13 @@ export const baseConfig = {
 export const baseLanguageOptions = {
   globals: {
     ...globals.node,
-    ...globals.jest,
   },
   parser: tsParser,
   ecmaVersion: 'latest',
   sourceType: 'module',
-  parserOptions: {},
+  parserOptions: {
+    projectService: true,
+  },
 }
 
 export const baseSettings = {
@@ -136,6 +138,11 @@ export const baseOverrides = [
   {
     // Test-specific overrides
     files: ['tests/**/*.ts', '**/*spec.ts', '**/*test.ts'],
+    languageOptions: {
+      globals: {
+        ...globals.jest,
+      },
+    },
     rules: {
       '@typescript-eslint/no-explicit-any': 'warn',
       '@typescript-eslint/no-unsafe-argument': 'off',
@@ -160,4 +167,9 @@ export const baseRecommendedConfig = [
   tseslint.configs.stylisticTypeChecked,
   eslintPluginImport.flatConfigs.recommended,
   eslintConfigPrettier,
+  {
+    plugins: {
+      'only-warn': onlyWarn,
+    },
+  },
 ]

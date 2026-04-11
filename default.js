@@ -13,14 +13,7 @@ export default defineConfig(
   baseConfig,
   ...baseRecommendedConfig,
   {
-    languageOptions: {
-      ...baseLanguageOptions,
-      parserOptions: {
-        ...baseLanguageOptions.parserOptions,
-        tsconfigRootDir: import.meta.dirname,
-        project: ['./tsconfig.eslint.json'],
-      },
-    },
+    languageOptions: baseLanguageOptions,
     settings: baseSettings,
     rules: {
       ...baseRules,
