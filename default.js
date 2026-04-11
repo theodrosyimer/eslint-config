@@ -1,6 +1,4 @@
 import { defineConfig } from 'eslint/config'
-import typescriptEslint from '@typescript-eslint/eslint-plugin'
-import eslintPluginImport from 'eslint-plugin-import'
 
 import {
   baseConfig,
@@ -15,10 +13,6 @@ export default defineConfig(
   baseConfig,
   ...baseRecommendedConfig,
   {
-    plugins: {
-      typescriptEslint,
-      eslintPluginImport,
-    },
     languageOptions: {
       ...baseLanguageOptions,
       parserOptions: {
