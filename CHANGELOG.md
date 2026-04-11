@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.6.0](https://github.com/theodrosyimer/eslint-config/compare/2.5.6...2.6.0) (2026-04-11)
+
+### ✨ Features
+
+* add turbo.js with custom ESLint rules and update package dependencies ([08c3f04](https://github.com/theodrosyimer/eslint-config/commit/08c3f04aa5d3422476f6fdde9f44d4dc1dadfbf2))
+* enhance README with detailed configuration options and Turbo Addon support ([4d4128f](https://github.com/theodrosyimer/eslint-config/commit/4d4128f9c2bf4410e4fb75607487d8821f9d00d4))
+* export turboAddon from turbo.js in index.js ([2d4adb5](https://github.com/theodrosyimer/eslint-config/commit/2d4adb5601ee097183bc325110b6073e384c7db5))
+* simplify languageOptions in ESLint configuration and add only-warn plugin ([c2baa10](https://github.com/theodrosyimer/eslint-config/commit/c2baa1075aefb3182430688f7114c85347eb3da9))
+
+### 🐛 Bug Fixes
+
+* correct JSON formatting in package.json ([168629c](https://github.com/theodrosyimer/eslint-config/commit/168629c62da079312a1a7078b2692d961346caec))
+
 ## [2.5.6](https://github.com/theodrosyimer/eslint-config/compare/2.5.5...2.5.6) (2026-04-11)
 
 ### 🐛 Bug Fixes
