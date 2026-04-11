@@ -6,6 +6,46 @@
 [![npm downloads](https://img.shields.io/npm/dm/@thyi/eslint-config.svg)](https://www.npmjs.com/package/@thyi/eslint-config)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+- [✨ Features](#-features)
+- [📋 What's Included](#-whats-included)
+  - [**Default Configuration**](#default-configuration)
+  - [**React Configuration** (React/React Native)](#react-configuration-reactreact-native)
+  - [**Turbo Addon** (Turborepo Monorepos)](#turbo-addon-turborepo-monorepos)
+- [🚀 Quick Start](#-quick-start)
+  - [Installation](#installation)
+  - [Configuration](#configuration)
+    - [1. **Default (Node.js) Configuration**](#1-default-nodejs-configuration)
+    - [2. **React Configuration**](#2-react-configuration)
+    - [3. **Turbo Addon**](#3-turbo-addon)
+  - [When to Use Which Configuration?](#when-to-use-which-configuration)
+  - [TypeScript Support](#typescript-support)
+  - [Package.json Scripts](#packagejson-scripts)
+- [⚙️ Configuration](#️-configuration)
+  - [Custom Rules Override](#custom-rules-override)
+  - [Adding Browser Globals (Web React Apps)](#adding-browser-globals-web-react-apps)
+  - [Disabling Warnings-Only Mode](#disabling-warnings-only-mode)
+  - [Environment-Specific Overrides](#environment-specific-overrides)
+  - [File Ignoring](#file-ignoring)
+- [🎨 Prettier Integration](#-prettier-integration)
+  - [Setting up Prettier](#setting-up-prettier)
+  - [Recommended Workflow](#recommended-workflow)
+- [🔧 IDE Integration](#-ide-integration)
+  - [VS Code Setup](#vs-code-setup)
+  - [Other IDEs](#other-ides)
+- [📚 Rule Categories](#-rule-categories)
+  - [Core JavaScript Rules](#core-javascript-rules)
+  - [TypeScript Rules](#typescript-rules)
+  - [React Rules](#react-rules)
+  - [React Native Rules](#react-native-rules)
+- [🚨 Common Issues](#-common-issues)
+  - [Flat Config Not Recognized](#flat-config-not-recognized)
+  - [TypeScript Parsing Errors](#typescript-parsing-errors)
+  - [Import Resolution Issues](#import-resolution-issues)
+  - [Files Not Covered by tsconfig](#files-not-covered-by-tsconfig)
+- [🤝 Contributing](#-contributing)
+- [📄 License](#-license)
+- [🔗 Related Projects](#-related-projects)
+
 ## ✨ Features
 
 - **🔧 Zero-config setup** - Works out of the box with sensible defaults
@@ -15,18 +55,20 @@
 - **🔷 TypeScript-first** - Comprehensive TypeScript support with type-aware linting
 - **🎨 Prettier-compatible** - Disables ESLint rules that conflict with Prettier
 - **📦 Import organization** - Automatic import sorting and grouping with TypeScript support
+- **⚠️ Warnings-only** - All ESLint issues show as warnings (yellow) so they don't blend with real errors (red) in your editor
+- **🏗️ Turborepo support** - Optional config for monorepos with `eslint-config-turbo`
 
 ## 📋 What's Included
 
-This package provides two specialized configurations:
+This package provides two configurations and a composable addon:
 
 ### **Default Configuration**
 
 - **ESLint Core Rules** - Latest JavaScript/ES2022+ standards
 - **TypeScript** - Type-aware linting with `@typescript-eslint`
-- **Node.js Globals** - Built-in Node.js and Jest globals
+- **Node.js Globals** - Built-in Node.js globals (Jest globals scoped to test files)
 - **Import Management** - Organized imports with `eslint-plugin-import` and `eslint-import-resolver-typescript`
-- **Code Formatting** - Prettier integration with consistent styling
+- **Prettier-compatible** - Disables ESLint rules that conflict with Prettier
 - **Performance** - Rules optimized for modern JavaScript engines
 
 ### **React Configuration** (React/React Native)
@@ -36,6 +78,12 @@ This package provides two specialized configurations:
 - **React Native** - Platform-specific rules and optimizations
 - **React Hooks** - Comprehensive hooks linting
 - **React Native Globals** - Mobile-specific globals and APIs
+
+### **Turbo Addon** (Turborepo Monorepos)
+
+- **Composable** - Layer on top of any config (Default or React)
+- **Turbo Rules** - Undeclared environment variable detection
+- **Monorepo-aware** - Works with Turborepo's caching and task pipeline
 
 ## 🚀 Quick Start
 
@@ -81,22 +129,45 @@ import config from '@thyi/eslint-config/react'
 export default config
 ```
 
+#### 3. **Turbo Addon**
+
+For **Turborepo monorepos** — layer the turbo addon on top of any config. Every package in the monorepo composes it with its base config:
+
+```js
+// Node.js package in monorepo
+import { defineConfig } from 'eslint/config'
+import config from '@thyi/eslint-config'
+import { turboAddon } from '@thyi/eslint-config/turbo'
+
+export default defineConfig(...config, ...turboAddon)
+```
+
+```js
+// React package in monorepo
+import { defineConfig } from 'eslint/config'
+import config from '@thyi/eslint-config/react'
+import { turboAddon } from '@thyi/eslint-config/turbo'
+
+export default defineConfig(...config, ...turboAddon)
+```
+
 ### When to Use Which Configuration?
 
-| Project Type            | Use     | Example                                          |
-| ----------------------- | ------- | ------------------------------------------------ |
-| **Node.js APIs**        | Default | `import config from '@thyi/eslint-config'`       |
-| **CLI Tools**           | Default | `import config from '@thyi/eslint-config'`       |
-| **Backend Services**    | Default | `import config from '@thyi/eslint-config'`       |
-| **Browser Libraries**   | Default | `import config from '@thyi/eslint-config'`       |
-| **Vanilla JS/TS Apps**  | Default | `import config from '@thyi/eslint-config'`       |
-| **Build Tools/Scripts** | Default | `import config from '@thyi/eslint-config'`       |
-| **React Web Apps**      | React   | `import config from '@thyi/eslint-config/react'` |
-| **Next.js Apps**        | React   | `import config from '@thyi/eslint-config/react'` |
-| **React Native Apps**   | React   | `import config from '@thyi/eslint-config/react'` |
-| **Expo Apps**           | React   | `import config from '@thyi/eslint-config/react'` |
+| Project Type            | Where to use                | Example                                                  |
+| ----------------------- | --------------------------- | -------------------------------------------------------- |
+| **Node.js APIs**        | Default                     | `import config from '@thyi/eslint-config'`               |
+| **CLI Tools**           | Default                     | `import config from '@thyi/eslint-config'`               |
+| **Backend Services**    | Default                     | `import config from '@thyi/eslint-config'`               |
+| **Browser Libraries**   | Default                     | `import config from '@thyi/eslint-config'`               |
+| **Vanilla JS/TS Apps**  | Default                     | `import config from '@thyi/eslint-config'`               |
+| **Build Tools/Scripts** | Default                     | `import config from '@thyi/eslint-config'`               |
+| **React Web Apps**      | React                       | `import config from '@thyi/eslint-config/react'`         |
+| **Next.js Apps**        | React                       | `import config from '@thyi/eslint-config/react'`         |
+| **React Native Apps**   | React                       | `import config from '@thyi/eslint-config/react'`         |
+| **Expo Apps**           | React                       | `import config from '@thyi/eslint-config/react'`         |
+| **Turborepo Monorepos** | Default/React + Turbo addon | `import { turboAddon } from '@thyi/eslint-config/turbo'` |
 
-**Simple rule**: Use **React config** for React projects, **Default config** for everything else.
+**Simple rule**: Use **React config** for React projects, **Default config** for everything else. Add **Turbo addon** in Turborepo monorepos.
 
 ### TypeScript Support
 
@@ -111,11 +182,12 @@ Both configurations include full TypeScript support. You **must** have a `tsconf
     "moduleResolution": "bundler",
     "sourceMap": true,
     "emitDecoratorMetadata": true,
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
     "declaration": true,
     "declarationMap": true,
     "esModuleInterop": true,
     "incremental": false,
+    "verbatimModuleSyntax": true,
     "isolatedModules": true,
     "removeComments": true,
     "resolveJsonModule": true,
@@ -128,7 +200,7 @@ Both configurations include full TypeScript support. You **must** have a `tsconf
     "useUnknownInCatchVariables": true,
     "exactOptionalPropertyTypes": true,
     "noPropertyAccessFromIndexSignature": true,
-    "noImplicitOverride": true,
+    "noImplicitOverride": true
   }
 }
 ```
@@ -177,6 +249,41 @@ export default defineConfig(...baseConfig, {
     'no-console': 'error',
     '@typescript-eslint/no-unused-vars': 'error',
     'react-native/no-inline-styles': 'off',
+  },
+})
+```
+
+### Adding Browser Globals (Web React Apps)
+
+The React config includes Node.js and React Native globals by default. For web-only React apps (Vite, CRA), add browser globals:
+
+```js
+import { defineConfig } from 'eslint/config'
+import baseConfig from '@thyi/eslint-config/react'
+import globals from 'globals'
+
+export default defineConfig(...baseConfig, {
+  languageOptions: {
+    globals: {
+      ...globals.browser,
+    },
+  },
+})
+```
+
+Globals merge additively — no existing globals are lost.
+
+### Disabling Warnings-Only Mode
+
+This config uses `eslint-plugin-only-warn` to report all ESLint issues as warnings (yellow) so they're visually distinct from real TypeScript/build errors (red) in your editor. CI still catches everything via `--max-warnings 0`. To disable this and restore errors:
+
+```js
+import { defineConfig } from 'eslint/config'
+import baseConfig from '@thyi/eslint-config'
+
+export default defineConfig(...baseConfig, {
+  plugins: {
+    'only-warn': null,
   },
 })
 ```
@@ -279,7 +386,7 @@ This approach gives you maximum flexibility while avoiding the performance overh
 - **Type Safety**: Strict type checking and null safety
 - **Modern TypeScript**: Latest TypeScript features and patterns
 - **Performance**: Type-aware optimizations
-- **Import Management**: Type-only imports and module resolution
+- **Import Management**: Module resolution and import organization
 
 ### React Rules
 
@@ -308,41 +415,23 @@ Make sure your `tsconfig.json` is valid and includes all TypeScript files you wa
 
 The config includes TypeScript and Node.js import resolvers. For custom path mapping, update your `tsconfig.json` with proper `paths` configuration.
 
-### Performance Issues
+### Files Not Covered by tsconfig
 
-For large projects, consider using `projectService` in your TypeScript parser options or implementing incremental linting.
+This config uses `projectService` which automatically finds the nearest `tsconfig.json` for each file. If you have files outside any tsconfig (e.g., config files), you can configure `allowDefaultProject`:
 
-### "Project service not found" Errors
+```js
+import { defineConfig } from 'eslint/config'
+import baseConfig from '@thyi/eslint-config'
 
-**Using JavaScript config files** (`eslint.config.js`, `vite.config.js`, etc.):
-
-Ensure your `tsconfig.json` includes JavaScript files and has `allowJs: true`:
-
-```json
-{
-  "compilerOptions": {
-    "allowJs": true
-    // ... other options
+export default defineConfig(...baseConfig, {
+  languageOptions: {
+    parserOptions: {
+      projectService: {
+        allowDefaultProject: ['*.config.js', '*.config.ts'],
+      },
+    },
   },
-  "include": [
-    "src/**/*",
-    "tests/**/*",
-    "*.config.js", // Include config files
-    "*.config.ts" // Include TypeScript config files too
-  ]
-}
-```
-
-**Alternative**: Create a dedicated `tsconfig.eslint.json` that extends your main config:
-
-```json
-{
-  "extends": "./tsconfig.json",
-  "compilerOptions": {
-    "allowJs": true
-  },
-  "include": ["src/**/*", "tests/**/*", "eslint.config.js", "vite.config.js", "*.config.js"]
-}
+})
 ```
 
 ## 🤝 Contributing
