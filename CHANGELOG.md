@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.5.4](https://github.com/theodrosyimer/eslint-config/compare/2.5.3...2.5.4) (2026-04-11)
+
+### 🐛 Bug Fixes
+
+* add default formatter for Prettier in editor configuration ([190e0cf](https://github.com/theodrosyimer/eslint-config/commit/190e0cf3ccbcf6b03d44cf8df9adca2402079f54))
+
 ## [2.5.3](https://github.com/theodrosyimer/eslint-config/compare/2.5.2...2.5.3) (2026-04-11)
 
 ### 🐛 Bug Fixes
