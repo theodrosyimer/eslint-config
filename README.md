@@ -193,13 +193,18 @@ The configuration includes intelligent overrides for different file types:
 
 The configuration automatically ignores common build directories and files:
 
-- `.expo/`
-- `.next/`
-- `build/`
-- `dist/`
-- `coverage/`
-- `html/`
-- `node_modules/`
+- `**/*.json`
+- `**/dist/**`
+- `**/node_modules/**`
+- `**/coverage/**`
+- `**/build/**`
+- `**/output/**`
+- `**/lib/**`
+- `**/html/**`
+- `**/.turbo/**`
+- `**/.expo/**`
+- `**/.next/**`
+- `eslint.config.*`
 - `babel.config.js`
 - `metro.config.js`
 
