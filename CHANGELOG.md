@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.5.3](https://github.com/theodrosyimer/eslint-config/compare/2.5.2...2.5.3) (2026-04-11)
+
+### 🐛 Bug Fixes
+
+* update TypeScript requirements and configuration in README ([cc447a5](https://github.com/theodrosyimer/eslint-config/commit/cc447a54c6b5aedc9525a58f90d1382923948858))
+
 ## [2.5.2](https://github.com/theodrosyimer/eslint-config/compare/2.5.1...2.5.2) (2026-04-11)
 
 ### 🐛 Bug Fixes
