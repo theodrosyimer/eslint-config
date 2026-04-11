@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.5.6](https://github.com/theodrosyimer/eslint-config/compare/2.5.5...2.5.6) (2026-04-11)
+
+### 🐛 Bug Fixes
+
+* update ignored files in configuration to include additional patterns ([a469abb](https://github.com/theodrosyimer/eslint-config/commit/a469abb53d6712664ac44adaed9af450d9a17ee7))
+
 ## [2.5.5](https://github.com/theodrosyimer/eslint-config/compare/2.5.4...2.5.5) (2026-04-11)
 
 ### 🐛 Bug Fixes
