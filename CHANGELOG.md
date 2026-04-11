@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.5.2](https://github.com/theodrosyimer/eslint-config/compare/2.5.1...2.5.2) (2026-04-11)
+
+### 🐛 Bug Fixes
+
+* update ESLint configuration for React and React Native plugins ([9f2c229](https://github.com/theodrosyimer/eslint-config/commit/9f2c229faf72175294c17b5b389d7ac47d6cfa80))
+
+### ♻️ Code Refactoring
+
+* remove unused plugins from ESLint configuration ([41a282c](https://github.com/theodrosyimer/eslint-config/commit/41a282cd90d041b75c08ec40185e8ecaadbebc80))
+* replace tseslint.config with defineConfig ([598d2e3](https://github.com/theodrosyimer/eslint-config/commit/598d2e39a547ed6eb8cd5b33b23c215d2724cad2))
+
 ## [2.5.1](https://github.com/theodrosyimer/eslint-config/compare/2.5.0...2.5.1) (2026-04-02)
 
 ## [2.5.0](https://github.com/theodrosyimer/eslint-config/compare/2.4.0...2.5.0) (2026-03-14)
