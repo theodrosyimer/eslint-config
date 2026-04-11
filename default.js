@@ -1,4 +1,4 @@
-import tseslint from 'typescript-eslint'
+import { defineConfig } from 'eslint/config'
 import typescriptEslint from '@typescript-eslint/eslint-plugin'
 import eslintPluginImport from 'eslint-plugin-import'
 
@@ -11,7 +11,7 @@ import {
   baseOverrides,
 } from './base.js'
 
-export default tseslint.config(
+export default defineConfig(
   baseConfig,
   ...baseRecommendedConfig,
   {

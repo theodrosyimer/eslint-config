@@ -1,4 +1,4 @@
-import tseslint from 'typescript-eslint'
+import { defineConfig } from 'eslint/config'
 import typescriptEslint from '@typescript-eslint/eslint-plugin'
 import react from 'eslint-plugin-react'
 import reactHooks from 'eslint-plugin-react-hooks'
@@ -14,7 +14,7 @@ import {
   baseOverrides,
 } from './base.js'
 
-export default tseslint.config(
+export default defineConfig(
   baseConfig,
   ...baseRecommendedConfig,
   react.configs.recommended,
@@ -76,7 +76,7 @@ export default tseslint.config(
             'nativewind/theme/hairlineWidth',
             'tailwindcss-animate',
             'package.json',
-            'path',
+            'node:',
             'zod',
             'dotenv',
           ],
