@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.5.5](https://github.com/theodrosyimer/eslint-config/compare/2.5.4...2.5.5) (2026-04-11)
+
+### 🐛 Bug Fixes
+
+* clarify Prettier integration description in README ([1713bb0](https://github.com/theodrosyimer/eslint-config/commit/1713bb001f5abfb97e16ecb4fd82468689d1e929))
+* remove consistent-type-imports rule from base configuration ([3ae4516](https://github.com/theodrosyimer/eslint-config/commit/3ae451695c9f24033fb67f56604c475fe82fb549))
+
 ## [2.5.4](https://github.com/theodrosyimer/eslint-config/compare/2.5.3...2.5.4) (2026-04-11)
 
 ### 🐛 Bug Fixes
