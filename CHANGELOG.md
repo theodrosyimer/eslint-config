@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.7.0](https://github.com/theodrosyimer/eslint-config/compare/2.6.0...2.7.0) (2026-04-11)
+
+### ✨ Features
+
+* update package exports to include types and add react.d.ts and turbo.d.ts files ([bb070e4](https://github.com/theodrosyimer/eslint-config/commit/bb070e4afe3276b0138cd2803d421e03ad6e8bdc))
+
 ## [2.6.0](https://github.com/theodrosyimer/eslint-config/compare/2.5.6...2.6.0) (2026-04-11)
 
 ### ✨ Features
