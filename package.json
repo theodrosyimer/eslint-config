@@ -20,7 +20,8 @@
   "types": "./index.d.ts",
   "exports": {
     ".": "./index.js",
-    "./react": "./react.js"
+    "./react": "./react.js",
+    "./turbo": "./turbo.js"
   },
   "keywords": [
     "javascript",
@@ -49,10 +50,11 @@
     "@types/react": "~19.2.14",
     "@typescript-eslint/eslint-plugin": "^8.58.0",
     "@typescript-eslint/parser": "^8.58.0",
-    "eslint": "^9.35.0",
     "eslint-config-prettier": "^10.1.8",
+    "eslint-config-turbo": "^2.9.6",
     "eslint-import-resolver-typescript": "^4.4.4",
     "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-only-warn": "^1.2.1",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-native": "^5.0.0",
@@ -69,9 +71,4 @@
     "access": "public",
     "tag": "latest"
   },
-  "eslintConfig": {
-    "extends": [
-      "./.eslintrc.js"
-    ]
-  }
 }
