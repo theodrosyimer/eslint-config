@@ -19,9 +19,18 @@
   "main": "index.js",
   "types": "./index.d.ts",
   "exports": {
-    ".": "./index.js",
-    "./react": "./react.js",
-    "./turbo": "./turbo.js"
+    ".": {
+      "types": "./index.d.ts",
+      "default": "./index.js"
+    },
+    "./react": {
+      "types": "./react.d.ts",
+      "default": "./react.js"
+    },
+    "./turbo": {
+      "types": "./turbo.d.ts",
+      "default": "./turbo.js"
+    }
   },
   "keywords": [
     "javascript",
