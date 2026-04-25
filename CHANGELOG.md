@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.7.1](https://github.com/theodrosyimer/eslint-config/compare/2.7.0...2.7.1) (2026-04-25)
+
+### 🐛 Bug Fixes
+
+* update basic-ftp version to 5.3.0 ([26efc4e](https://github.com/theodrosyimer/eslint-config/commit/26efc4ef130914c88abe76157984c6844c3758d2))
+* update defu version to 6.1.7 in pnpm-lock.yaml ([e3304e4](https://github.com/theodrosyimer/eslint-config/commit/e3304e4d04c4870dce1821ec3ca734987858dae3))
+
 ## [2.7.0](https://github.com/theodrosyimer/eslint-config/compare/2.6.0...2.7.0) (2026-04-11)
 
 ### ✨ Features
