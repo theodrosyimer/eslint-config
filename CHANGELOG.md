@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.8.3](https://github.com/theodrosyimer/eslint-config/compare/2.8.2...2.8.3) (2026-08-12)
+
+### 🐛 Bug Fixes
+
+* update typescript peer dependency to version 6.0.3 ([2ca6be7](https://github.com/theodrosyimer/eslint-config/commit/2ca6be7c1b0f670eb1c2ab7bfcff1a11f54b9e00))
+* update typescript version to 6.0.3 for compatibility ([4d74884](https://github.com/theodrosyimer/eslint-config/commit/4d74884cc5fa28a40f61cf7a9b0598fb993339f9))
+
 ## [2.8.2](https://github.com/theodrosyimer/eslint-config/compare/2.8.1...2.8.2) (2026-08-12)
 
 ### 🐛 Bug Fixes
