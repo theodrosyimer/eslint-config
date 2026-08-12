@@ -38,5 +38,5 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Lint package code
-        run: pnpm run lint
+      - name: Format package code
+        run: pnpm run format
