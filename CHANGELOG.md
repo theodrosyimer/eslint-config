@@ -1,5 +1,20 @@
 # Changelog
 
+## [2.8.0](https://github.com/theodrosyimer/eslint-config/compare/2.7.1...2.8.0) (2026-08-12)
+
+### ✨ Features
+
+* add TypeScript ESLint rules for non-null assertions and type assertions ([b580ead](https://github.com/theodrosyimer/eslint-config/commit/b580eadf997a6736c0be166bde29447a5d06062c))
+
+### 🐛 Bug Fixes
+
+* correct typo in lint command in CI workflow ([ad054bb](https://github.com/theodrosyimer/eslint-config/commit/ad054bbfbf47975b0cc831fd26e7c660af2070be))
+* enable persist-credentials in checkout step for Git operations ([40328bb](https://github.com/theodrosyimer/eslint-config/commit/40328bb3f7db736fea0dd5f85a284ef657752ca0))
+* update CI workflow to run format instead of lint for package code ([252620b](https://github.com/theodrosyimer/eslint-config/commit/252620b1b4efe68e80f7b13e904fb2cd6a7e38db))
+* update Node.js version to 24.19.0 in .nvmrc and package.json ([0ff48d4](https://github.com/theodrosyimer/eslint-config/commit/0ff48d4597c23c1b04796f12d2e4cc04ead1b2c5))
+* update packageManager field to pnpm version in package.json ([ca377dc](https://github.com/theodrosyimer/eslint-config/commit/ca377dc04ae527dcf306aa477676e21e6bafe2e7))
+* update workflow names and Node.js version handling in CI configurations ([831bf9f](https://github.com/theodrosyimer/eslint-config/commit/831bf9fb9faf2658b19c16c8c77a4221a52ba1fc))
+
 ## [2.7.1](https://github.com/theodrosyimer/eslint-config/compare/2.7.0...2.7.1) (2026-04-25)
 
 ### 🐛 Bug Fixes
