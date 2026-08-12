@@ -77,6 +77,30 @@ export const baseRules = {
       },
     },
   ],
+  // The non-null assertion `!` is banned, along with the three ways round it.
+  // `!` asserts something no test can fail on: it silences the checker at one
+  // expression and leaves nothing behind that would notice when the assumption
+  // stops holding. Every case has an alternative that keeps the check — narrow
+  // it, guard it where the guard is reachable, or carry the value instead of
+  // reaching back for it.
+  //
+  // Two of these are the real gap: `no-non-null-assertion` and
+  // `-asserted-nullish-coalescing` ship in typescript-eslint's `strict` preset,
+  // and baseRecommendedConfig extends recommendedTypeChecked + stylisticTypeChecked,
+  // which do not include them. The other two already arrive via `recommended`
+  // and are pinned here so a preset reshuffle cannot silently drop them.
+  // None of the four need type information, so they cost nothing.
+  '@typescript-eslint/no-non-null-assertion': 'error',
+  '@typescript-eslint/no-non-null-asserted-nullish-coalescing': 'error',
+  '@typescript-eslint/no-non-null-asserted-optional-chain': 'error',
+  '@typescript-eslint/no-extra-non-null-assertion': 'error',
+  // Same family, same reason: `as` re-labels a value without checking it.
+  // `stylisticTypeChecked` already enables this rule, but with the default
+  // `assertionStyle: 'as'`, which only picks a SYNTAX. 'never' is what actually
+  // bans it. `as const` is unaffected — the rule always permits const
+  // assertions — so `satisfies` + `as const` idioms keep working.
+  // The interop exception lives in baseOverrides below, by path.
+  '@typescript-eslint/consistent-type-assertions': ['error', { assertionStyle: 'never' }],
   '@typescript-eslint/no-unnecessary-condition': 'error',
   '@typescript-eslint/no-unused-vars': [
     'error',
@@ -157,6 +181,22 @@ export const baseOverrides = [
     files: ['**/*.js', '**/*.cjs', '**/*.mjs'],
     rules: {
       ...tseslint.configs.disableTypeChecked.rules,
+    },
+  },
+  {
+    // Third-party interop — the one place `as` is allowed.
+    //
+    // The exception is SEMANTIC ("this value crosses a boundary we do not own"),
+    // and a path can only approximate it. This covers the hexagonal layout where
+    // adapters, repositories and mappers live; anywhere else, the escape is an
+    // inline disable carrying a reason, which is greppable and reviewable in a
+    // way a whole exempt directory is not.
+    //
+    // Deliberately NOT extended to tests: a cast in a test is usually a fixture
+    // that should be typed, not interop.
+    files: ['**/infrastructure/**/*.ts', '**/infrastructure/**/*.tsx'],
+    rules: {
+      '@typescript-eslint/consistent-type-assertions': 'off',
     },
   },
 ]
