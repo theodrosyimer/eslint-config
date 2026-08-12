@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.8.2](https://github.com/theodrosyimer/eslint-config/compare/2.8.1...2.8.2) (2026-08-12)
+
+### 🐛 Bug Fixes
+
+* update node engine requirement to allow for broader compatibility ([99fbb70](https://github.com/theodrosyimer/eslint-config/commit/99fbb707c3dba579d9051751adb08ba1e7a03494))
+
 ## [2.8.1](https://github.com/theodrosyimer/eslint-config/compare/2.8.0...2.8.1) (2026-08-12)
 
 ### 🐛 Bug Fixes
