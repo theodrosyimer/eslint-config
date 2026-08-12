@@ -39,4 +39,4 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Lint package code
-        run: pnpm run lin
+        run: pnpm run lint
