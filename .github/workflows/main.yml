@@ -1,32 +1,42 @@
-name: Format
+name: NPM Package CI
 
 on:
   push:
-    branches: ['**']
+    branches: ["**"] # Universal coverage
   pull_request:
-    branches: ['**']
+    branches: ["**"]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   ci:
     name: Package CI
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: read
+
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           fetch-depth: 0
 
-      - name: Install Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '24.14.1'
-
       - name: Install pnpm
-        uses: pnpm/action-setup@v4
+        uses: pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320 # v5.0.0
+
+      - name: Install Node.js
+        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
+        with:
+          # ✅ Use Node.js 22.18.0 or greater for guaranteed NPM 11.5.1+ compatibility
+          # node-version: '22.18.0' # Latest LTS
+          node-version-file: ".nvmrc" # Use the .nvmrc file to set the Node.js version greater than or equal to 22.18.0
+          cache: "pnpm"
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
       - name: Lint package code
-        run: pnpm run format
+        run: pnpm run lin
