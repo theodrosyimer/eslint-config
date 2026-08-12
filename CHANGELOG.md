@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.8.1](https://github.com/theodrosyimer/eslint-config/compare/2.8.0...2.8.1) (2026-08-12)
+
+### 🐛 Bug Fixes
+
+* update dependencies to include supports-color for compatibility ([e428657](https://github.com/theodrosyimer/eslint-config/commit/e428657309de7be05cc308c29cb69acf6899a2a8))
+* update typescript peer dependency ([2d20544](https://github.com/theodrosyimer/eslint-config/commit/2d20544eb95ac6b6927eb54903b81d203f9bdfca))
+
 ## [2.8.0](https://github.com/theodrosyimer/eslint-config/compare/2.7.1...2.8.0) (2026-08-12)
 
 ### ✨ Features
