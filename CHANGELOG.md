@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.8.5](https://github.com/theodrosyimer/eslint-config/compare/2.8.4...2.8.5) (2026-08-21)
+
+### 🐛 Bug Fixes
+
+* enable no-explicit-any rule for stricter type safety ([0131ffc](https://github.com/theodrosyimer/eslint-config/commit/0131ffca882db104b60897716d4d7e4a46acdf16))
+
 ## [2.8.4](https://github.com/theodrosyimer/eslint-config/compare/2.8.3...2.8.4) (2026-08-21)
 
 ### 🐛 Bug Fixes
