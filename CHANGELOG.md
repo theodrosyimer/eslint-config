@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.8.4](https://github.com/theodrosyimer/eslint-config/compare/2.8.3...2.8.4) (2026-08-21)
+
+### 🐛 Bug Fixes
+
+* re-enable no-explicit-any rule ([61ace62](https://github.com/theodrosyimer/eslint-config/commit/61ace628cb2a8d86cf6f4080dae11125fe31abd1))
+
 ## [2.8.3](https://github.com/theodrosyimer/eslint-config/compare/2.8.2...2.8.3) (2026-08-12)
 
 ### 🐛 Bug Fixes
