@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.10.0](https://github.com/theodrosyimer/eslint-config/compare/2.9.0...2.10.0) (2026-08-29)
+
+### ✨ Features
+
+* migrate to eslint-plugin-import-x ([8d6de8a](https://github.com/theodrosyimer/eslint-config/commit/8d6de8a604a8c252c6e5deca93fe3ecdd144345a))
+
 ## [2.9.0](https://github.com/theodrosyimer/eslint-config/compare/2.8.5...2.9.0) (2026-08-29)
 
 ### ✨ Features
