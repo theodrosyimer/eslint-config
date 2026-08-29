@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.9.0](https://github.com/theodrosyimer/eslint-config/compare/2.8.5...2.9.0) (2026-08-29)
+
+### ✨ Features
+
+* add array-type rule for stricter type enforcement and include additional recommended configs ([6914201](https://github.com/theodrosyimer/eslint-config/commit/6914201513dc275d4b2332ca6b1d6b2b9d58bb40))
+
 ## [2.8.5](https://github.com/theodrosyimer/eslint-config/compare/2.8.4...2.8.5) (2026-08-21)
 
 ### 🐛 Bug Fixes
