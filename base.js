@@ -120,7 +120,7 @@ export const baseRules = {
       ignoreDeclarationSort: true,
     },
   ],
-  'import/order': [
+  'import-x/order': [
     'error',
     {
       groups: [['builtin'], ['external'], ['internal'], ['parent', 'sibling', 'index']],
