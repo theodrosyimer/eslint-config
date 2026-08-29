@@ -3,7 +3,7 @@ import tseslint from 'typescript-eslint'
 import tsParser from '@typescript-eslint/parser'
 import globals from 'globals'
 import eslintConfigPrettier from 'eslint-config-prettier/flat'
-import eslintPluginImport from 'eslint-plugin-import'
+import { importX } from 'eslint-plugin-import-x'
 import onlyWarn from 'eslint-plugin-only-warn'
 
 export const baseConfig = {
@@ -38,7 +38,7 @@ export const baseLanguageOptions = {
 }
 
 export const baseSettings = {
-  'import/resolver': {
+  'import-x/resolver': {
     typescript: true,
     node: true,
   },
@@ -63,6 +63,9 @@ export const baseRules = {
   '@typescript-eslint/array-type': 'off',
   '@typescript-eslint/consistent-type-definitions': 'off',
   '@typescript-eslint/no-explicit-any': 'error',
+  '@typescript-eslint/array-type': ['error', { default: 'generic' }],
+  // 'dot-notation': 'off',
+  // '@typescript-eslint/dot-notation': 'off',
   '@typescript-eslint/no-extraneous-class': [
     'warn',
     {
@@ -172,7 +175,6 @@ export const baseOverrides = [
       '@typescript-eslint/no-unsafe-argument': 'off',
       '@typescript-eslint/no-unsafe-assignment': 'off',
       '@typescript-eslint/no-unsafe-member-access': 'off',
-      '@typescript-eslint/array-type': ['error', { default: 'generic' }],
       'max-lines-per-function': 'off',
       'max-nested-callbacks': 'off',
     },
@@ -182,6 +184,7 @@ export const baseOverrides = [
     files: ['**/*.js', '**/*.cjs', '**/*.mjs'],
     rules: {
       ...tseslint.configs.disableTypeChecked.rules,
+      ...importX.flatConfigs.recommended,
     },
   },
   {
@@ -206,10 +209,10 @@ export const baseRecommendedConfig = [
   eslint.configs.recommended,
   tseslint.configs.recommendedTypeChecked,
   tseslint.configs.stylisticTypeChecked,
-  eslintPluginImport.flatConfigs.recommended,
-  eslintPluginImport.flatConfigs.typescript,
-  eslintPluginImport.flatConfigs.react,
-  eslintPluginImport.flatConfigs['react-native'],
+  importX.flatConfigs.recommended,
+  importX.flatConfigs.typescript,
+  importX.flatConfigs.react,
+  importX.flatConfigs['react-native'],
   eslintConfigPrettier,
   {
     plugins: {
