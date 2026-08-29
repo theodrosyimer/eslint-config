@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.10.1](https://github.com/theodrosyimer/eslint-config/compare/2.10.0...2.10.1) (2026-08-29)
+
+### 🐛 Bug Fixes
+
+* update import/order rule to import-x/order ([a044ff3](https://github.com/theodrosyimer/eslint-config/commit/a044ff30d4d92d9d20dfdccfc692bc98ec7c5222))
+
 ## [2.10.0](https://github.com/theodrosyimer/eslint-config/compare/2.9.0...2.10.0) (2026-08-29)
 
 ### ✨ Features
