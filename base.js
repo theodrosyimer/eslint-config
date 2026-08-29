@@ -172,6 +172,7 @@ export const baseOverrides = [
       '@typescript-eslint/no-unsafe-argument': 'off',
       '@typescript-eslint/no-unsafe-assignment': 'off',
       '@typescript-eslint/no-unsafe-member-access': 'off',
+      '@typescript-eslint/array-type': ['error', { default: 'generic' }],
       'max-lines-per-function': 'off',
       'max-nested-callbacks': 'off',
     },
@@ -206,6 +207,9 @@ export const baseRecommendedConfig = [
   tseslint.configs.recommendedTypeChecked,
   tseslint.configs.stylisticTypeChecked,
   eslintPluginImport.flatConfigs.recommended,
+  eslintPluginImport.flatConfigs.typescript,
+  eslintPluginImport.flatConfigs.react,
+  eslintPluginImport.flatConfigs['react-native'],
   eslintConfigPrettier,
   {
     plugins: {
