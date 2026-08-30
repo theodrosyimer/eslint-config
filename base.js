@@ -184,7 +184,7 @@ export const baseOverrides = [
     files: ['**/*.js', '**/*.cjs', '**/*.mjs'],
     rules: {
       ...tseslint.configs.disableTypeChecked.rules,
-      ...importX.flatConfigs.recommended,
+      ...importX.flatConfigs.recommended.rules,
     },
   },
   {
