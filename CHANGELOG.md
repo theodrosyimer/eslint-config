@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.10.2](https://github.com/theodrosyimer/eslint-config/compare/2.10.1...2.10.2) (2026-08-30)
+
+### 🐛 Bug Fixes
+
+* correct import of recommended rules in baseOverrides ([765a41a](https://github.com/theodrosyimer/eslint-config/commit/765a41ae51cd5df13dd09e7c04b69cd0468a06fa))
+
 ## [2.10.1](https://github.com/theodrosyimer/eslint-config/compare/2.10.0...2.10.1) (2026-08-29)
 
 ### 🐛 Bug Fixes
