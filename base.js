@@ -33,13 +33,33 @@ export const baseLanguageOptions = {
   ecmaVersion: 'latest',
   sourceType: 'module',
   parserOptions: {
-    projectService: true,
+    projectService: {
+      allowDefaultProject: ['*.config.js', '*.config.ts', '*.config.mjs'],
+    },
   },
 }
 
+// Live-types repos resolve #/ and workspace specifiers through the
+// @repo/source condition; without it the resolver follows `default`
+// into gitignored dist/. Inert in repos whose exports never declare it.
+// Supplying conditionNames REPLACES the resolver defaults, hence the tail.
 export const baseSettings = {
   'import-x/resolver': {
-    typescript: true,
+    typescript: {
+      conditionNames: [
+        '@repo/source',
+        'types',
+        'import',
+        'esm2020',
+        'es2020',
+        'es2015',
+        'require',
+        'node',
+        'node-addons',
+        'browser',
+        'default',
+      ],
+    },
     node: true,
   },
 }
