@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.10.3](https://github.com/theodrosyimer/eslint-config/compare/2.10.2...2.10.3) (2026-09-10)
+
+### 🐛 Bug Fixes
+
+* enhance projectService and typescript configuration in base settings ([137a5be](https://github.com/theodrosyimer/eslint-config/commit/137a5be5a43aa3a2da9a7981091222aa98cc95f2))
+
 ## [2.10.2](https://github.com/theodrosyimer/eslint-config/compare/2.10.1...2.10.2) (2026-08-30)
 
 ### 🐛 Bug Fixes
