@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.11.0](https://github.com/theodrosyimer/eslint-config/compare/2.10.3...2.11.0) (2026-09-22)
+
+### ✨ Features
+
+* add method-signature-style rule to TypeScript configuration ([2602a21](https://github.com/theodrosyimer/eslint-config/commit/2602a21e714490ad5423e50472cbe96918a27c84))
+
 ## [2.10.3](https://github.com/theodrosyimer/eslint-config/compare/2.10.2...2.10.3) (2026-09-10)
 
 ### 🐛 Bug Fixes
