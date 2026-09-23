@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.11.2](https://github.com/theodrosyimer/eslint-config/compare/2.11.1...2.11.2) (2026-09-23)
+
+### 🐛 Bug Fixes
+
+* remove unused array-type rule from TypeScript configuration ([eee1555](https://github.com/theodrosyimer/eslint-config/commit/eee155564b14949606f630a1b39cb9f350997715))
+
 ## [2.11.1](https://github.com/theodrosyimer/eslint-config/compare/2.11.0...2.11.1) (2026-09-23)
 
 ### 🐛 Bug Fixes
