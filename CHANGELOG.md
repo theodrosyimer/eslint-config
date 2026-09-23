@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.11.1](https://github.com/theodrosyimer/eslint-config/compare/2.11.0...2.11.1) (2026-09-23)
+
+### 🐛 Bug Fixes
+
+* add missing ignores for .stryker-tmp and reports directories ([fea6d6a](https://github.com/theodrosyimer/eslint-config/commit/fea6d6a8f9618bf3409d2678a147edaae8cbf381))
+
 ## [2.11.0](https://github.com/theodrosyimer/eslint-config/compare/2.10.3...2.11.0) (2026-09-22)
 
 ### ✨ Features
