@@ -82,7 +82,6 @@ export const baseRules = {
       requireCatchParameter: true,
     },
   ],
-  '@typescript-eslint/array-type': 'off',
   '@typescript-eslint/consistent-type-definitions': 'off',
   '@typescript-eslint/method-signature-style': 'error',
   '@typescript-eslint/no-explicit-any': 'error',
