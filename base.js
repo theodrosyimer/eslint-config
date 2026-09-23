@@ -22,6 +22,8 @@ export const baseConfig = {
     'eslint.config.*',
     'babel.config.js',
     'metro.config.js',
+    '**/.stryker-tmp/**',
+    '**/reports/**',
   ],
 }
 
