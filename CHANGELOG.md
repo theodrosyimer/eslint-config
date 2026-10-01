@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.13.0](https://github.com/theodrosyimer/eslint-config/compare/2.12.1...2.13.0) (2026-10-01)
+
+### ✨ Features
+
+* enable dot-notation rule and update padding-line-between-statements configuration ([12382be](https://github.com/theodrosyimer/eslint-config/commit/12382bea9caab19c670431d1cf1b6da39b9d47af))
+
 ## [2.12.1](https://github.com/theodrosyimer/eslint-config/compare/2.12.0...2.12.1) (2026-10-01)
 
 ### 🐛 Bug Fixes
