@@ -147,6 +147,7 @@ export const baseRules = {
     { blankLine: 'always', prev: '*', next: 'for' },
     { blankLine: 'always', prev: '*', next: 'return' },
     { blankLine: 'always', prev: '*', next: 'block-like' },
+    { blankLine: 'always', prev: '*', next: 'if' },
   ],
   'sort-imports': [
     'error',
