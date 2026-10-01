@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.12.0](https://github.com/theodrosyimer/eslint-config/compare/2.11.2...2.12.0) (2026-10-01)
+
+### ✨ Features
+
+* add @stylistic/eslint-plugin and new padding-line-between-statements rule ([2730da5](https://github.com/theodrosyimer/eslint-config/commit/2730da5490603f2eaf15b1979bcdf2af1acf7631))
+
 ## [2.11.2](https://github.com/theodrosyimer/eslint-config/compare/2.11.1...2.11.2) (2026-09-23)
 
 ### 🐛 Bug Fixes
