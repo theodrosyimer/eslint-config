@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.14.0](https://github.com/theodrosyimer/eslint-config/compare/2.13.1...2.14.0) (2026-10-01)
+
+### ✨ Features
+
+* add rule to enforce blank lines before 'if' statements ([a68e100](https://github.com/theodrosyimer/eslint-config/commit/a68e100535094109d13e5ab46ff29a983606bbd7))
+
 ## [2.13.1](https://github.com/theodrosyimer/eslint-config/compare/2.13.0...2.13.1) (2026-10-01)
 
 ### ♻️ Code Refactoring
