@@ -5,6 +5,7 @@ import globals from 'globals'
 import eslintConfigPrettier from 'eslint-config-prettier/flat'
 import { importX } from 'eslint-plugin-import-x'
 import onlyWarn from 'eslint-plugin-only-warn'
+import stylistic from '@stylistic/eslint-plugin'
 
 export const baseConfig = {
   ignores: [
