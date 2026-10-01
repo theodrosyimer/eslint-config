@@ -136,6 +136,12 @@ export const baseRules = {
   ],
   '@typescript-eslint/no-unsafe-argument': 'warn',
   '@typescript-eslint/require-await': 'off',
+  '@stylistic/padding-line-between-statements': [
+    'error',
+    // { blankLine: 'always', prev: '*', next: 'for' },
+    { blankLine: 'always', prev: '*', next: 'return' },
+    { blankLine: 'always', prev: '*', next: 'block-like' },
+  ],
   'sort-imports': [
     'error',
     {
@@ -239,6 +245,7 @@ export const baseRecommendedConfig = [
   {
     plugins: {
       'only-warn': onlyWarn,
+      '@stylistic': stylistic,
     },
   },
 ]
