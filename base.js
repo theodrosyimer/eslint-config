@@ -87,8 +87,8 @@ export const baseRules = {
   '@typescript-eslint/method-signature-style': 'error',
   '@typescript-eslint/no-explicit-any': 'error',
   '@typescript-eslint/array-type': ['error', { default: 'generic' }],
-  // 'dot-notation': 'off',
-  // '@typescript-eslint/dot-notation': 'off',
+  'dot-notation': 'off',
+  '@typescript-eslint/dot-notation': 'off',
   '@typescript-eslint/no-extraneous-class': [
     'warn',
     {
@@ -139,7 +139,7 @@ export const baseRules = {
   '@typescript-eslint/require-await': 'off',
   '@stylistic/padding-line-between-statements': [
     'error',
-    // { blankLine: 'always', prev: '*', next: 'for' },
+    { blankLine: 'always', prev: '*', next: 'for' },
     { blankLine: 'always', prev: '*', next: 'return' },
     { blankLine: 'always', prev: '*', next: 'block-like' },
   ],
