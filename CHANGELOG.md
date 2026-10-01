@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.13.1](https://github.com/theodrosyimer/eslint-config/compare/2.13.0...2.13.1) (2026-10-01)
+
+### ♻️ Code Refactoring
+
+* comment out unused imports and update dot-notation rule documentation ([456d2fa](https://github.com/theodrosyimer/eslint-config/commit/456d2fa9f61ccbc281ae9231c90197a2084c06d5))
+
 ## [2.13.0](https://github.com/theodrosyimer/eslint-config/compare/2.12.1...2.13.0) (2026-10-01)
 
 ### ✨ Features
