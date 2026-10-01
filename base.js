@@ -4,7 +4,7 @@ import tsParser from '@typescript-eslint/parser'
 import globals from 'globals'
 import eslintConfigPrettier from 'eslint-config-prettier/flat'
 import { importX } from 'eslint-plugin-import-x'
-import onlyWarn from 'eslint-plugin-only-warn'
+// import onlyWarn from 'eslint-plugin-only-warn'
 import stylistic from '@stylistic/eslint-plugin'
 
 export const baseConfig = {
@@ -87,6 +87,11 @@ export const baseRules = {
   '@typescript-eslint/method-signature-style': 'error',
   '@typescript-eslint/no-explicit-any': 'error',
   '@typescript-eslint/array-type': ['error', { default: 'generic' }],
+  // Index-signature access has ONE owner and it is the compiler:
+  // `noPropertyAccessFromIndexSignature` in
+  // packages/config/typescript/base.json. `stylisticTypeChecked` turns
+  // `dot-notation` on, which demands the opposite and whose auto-fix
+  // introduced 40 TS4111 errors during the conversion
   'dot-notation': 'off',
   '@typescript-eslint/dot-notation': 'off',
   '@typescript-eslint/no-extraneous-class': [
@@ -245,7 +250,7 @@ export const baseRecommendedConfig = [
   eslintConfigPrettier,
   {
     plugins: {
-      'only-warn': onlyWarn,
+      // 'only-warn': onlyWarn,
       '@stylistic': stylistic,
     },
   },
