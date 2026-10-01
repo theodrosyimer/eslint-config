@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.12.1](https://github.com/theodrosyimer/eslint-config/compare/2.12.0...2.12.1) (2026-10-01)
+
+### 🐛 Bug Fixes
+
+* add missing @stylistic/eslint-plugin import ([2935750](https://github.com/theodrosyimer/eslint-config/commit/293575011f7ecf8a551f48f1c15ada9399ee1293))
+
 ## [2.12.0](https://github.com/theodrosyimer/eslint-config/compare/2.11.2...2.12.0) (2026-10-01)
 
 ### ✨ Features
