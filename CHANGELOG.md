@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.15.0](https://github.com/theodrosyimer/eslint-config/compare/2.14.0...2.15.0) (2026-10-04)
+
+### ✨ Features
+
+* add rule to enforce no blank lines before 'case' and 'default' statements ([421d65a](https://github.com/theodrosyimer/eslint-config/commit/421d65ad52ec774b1edfb7422b7e8447719392f9))
+
 ## [2.14.0](https://github.com/theodrosyimer/eslint-config/compare/2.13.1...2.14.0) (2026-10-01)
 
 ### ✨ Features
