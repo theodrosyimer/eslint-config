@@ -1,3 +1,4 @@
+import { fixupPluginRules } from '@eslint/compat'
 import { defineConfig } from 'eslint/config'
 import react from 'eslint-plugin-react'
 import reactHooks from 'eslint-plugin-react-hooks'
@@ -12,14 +13,25 @@ import {
   baseOverrides,
 } from './base.js'
 
+// eslint-plugin-react 7.37.5 and eslint-plugin-react-native 5.0.0 still call
+// context methods ESLint 10 removed (getFilename, getSourceCode): 7 of 20 react
+// rules and 6 of 7 react-native rules crash without this wrapper.
+const fixedReact = fixupPluginRules(react)
+const fixedReactNative = fixupPluginRules(reactNative)
+
 export default defineConfig(
   baseConfig,
   ...baseRecommendedConfig,
-  react.configs.flat.recommended,
-  reactHooks.configs['recommended-latest'],
+  {
+    ...react.configs.flat.recommended,
+    plugins: {
+      react: fixedReact,
+    },
+  },
+  reactHooks.configs.flat['recommended-latest'],
   {
     plugins: {
-      'react-native': reactNative,
+      'react-native': fixedReactNative,
     },
     languageOptions: {
       ...baseLanguageOptions,
