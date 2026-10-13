@@ -1,4 +1,5 @@
 import { fixupPluginRules } from '@eslint/compat'
+import pluginQuery from '@tanstack/eslint-plugin-query'
 import { defineConfig } from 'eslint/config'
 import react from 'eslint-plugin-react'
 import reactHooks from 'eslint-plugin-react-hooks'
@@ -29,6 +30,7 @@ export default defineConfig(
     },
   },
   reactHooks.configs.flat['recommended-latest'],
+  ...pluginQuery.configs['flat/recommended'],
   {
     plugins: {
       'react-native': fixedReactNative,
