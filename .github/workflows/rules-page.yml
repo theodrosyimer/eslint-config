@@ -1,0 +1,66 @@
+name: Rules Page
+
+# Runs after "Release and Publish" so its push never races release-it's push to
+# main. A push made with GITHUB_TOKEN starts no new workflow run, so the commit
+# below cannot trigger CI or another release.
+on:
+  workflow_run:
+    workflows: ['Release and Publish']
+    types: [completed]
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
+jobs:
+  regenerate:
+    name: Regenerate rules page
+    runs-on: ubuntu-latest
+
+    # The only job in the repository that writes to main besides the release.
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          ref: main
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320 # v5.0.0
+
+      - name: Install Node.js
+        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Check rules page examples
+        run: pnpm run rules:check
+
+      - name: Generate rules page
+        run: pnpm run rules:generate
+
+      # The generator writes byte-identical output for identical rules, so an
+      # unchanged config leaves nothing to commit. `git status` (not `git diff`)
+      # also catches the first run, when the page is still untracked.
+      - name: Commit the page when a rule changed
+        run: |
+          if [ -z "$(git status --porcelain -- docs/rules/index.html)" ]; then
+            echo "Rules page unchanged"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add docs/rules/index.html
+          git commit -m "docs: regenerate rules page"
+          git push

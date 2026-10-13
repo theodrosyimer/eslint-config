@@ -124,3 +124,6 @@ typings/
 
 # DynamoDB Local files
 .dynamodb/
+
+# Rules page example fixtures
+.rules-fixture

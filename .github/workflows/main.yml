@@ -40,3 +40,8 @@ jobs:
 
       - name: Format package code
         run: pnpm run format
+
+      # Every rules-page example is linted with the real config: an incorrect
+      # example must trigger its rule, a correct one must not. Gates the release.
+      - name: Check rules page examples
+        run: pnpm run rules:check
