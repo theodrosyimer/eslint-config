@@ -2,6 +2,10 @@ allowBuilds:
   unrs-resolver: false
 
 overrides:
+  # Temporary: eslint-plugin-import-x's optional peer resolved to 8.71.2, which
+  # is younger than the minimumReleaseAge. Remove once 8.71.2 is old enough and
+  # typescript-eslint is bumped to it.
+  '@typescript-eslint/utils': 8.71.1
   ajv@<6.14.0: '^6.14.0'
   basic-ftp@<5.2.0: '>=5.2.0'
   brace-expansion@<1.1.13: '>=1.1.13'
