@@ -1,5 +1,31 @@
 # Changelog
 
+## [3.0.0](https://github.com/theodrosyimer/eslint-config/compare/2.15.0...3.0.0) (2026-10-13)
+
+### ⚠ BREAKING CHANGES
+
+* requires ESLint ^10.0.0 and TypeScript >=6.0.3 <6.1.0.
+@eslint/js 10 recommended adds no-unassigned-vars and no-useless-assignment,
+and react-hooks recommended-latest grows from 2 to 17 rules (React Compiler
+rules), so existing projects can see new errors.
+
+### ✨ Features
+
+* add generated rules page with tested examples ([d27476a](https://github.com/theodrosyimer/eslint-config/commit/d27476ac7e3f96cf51c8e74f5ee7f37b6d563c0f))
+* add react-web entry for web-only React apps ([b10343f](https://github.com/theodrosyimer/eslint-config/commit/b10343f9580dbe7da8c626d96d9a412d5baafc6b))
+* add TanStack Query rules to the React config ([6defe88](https://github.com/theodrosyimer/eslint-config/commit/6defe88bebc50361b5464574ba15b0ec206e7c0d))
+* support ESLint 10 ([5c867c9](https://github.com/theodrosyimer/eslint-config/commit/5c867c9eff512b5822c3d9eb45055c30a19af085))
+
+### 🐛 Bug Fixes
+
+* declare ESM package type and named export types ([b58b2ec](https://github.com/theodrosyimer/eslint-config/commit/b58b2ec9d57677637b145b7e33ee849b79319086))
+* keep ajv override on v6 so ESLint loads ([01848a2](https://github.com/theodrosyimer/eslint-config/commit/01848a271e05909cdaffb53c644a57a02ef1f794))
+
+### 📚 Documentation
+
+* document v3 and reorder the README for first use ([3c0d791](https://github.com/theodrosyimer/eslint-config/commit/3c0d7916f8c73aff13588917005de9b9f8c378d4))
+* rewrite README to match the current config ([da0afe6](https://github.com/theodrosyimer/eslint-config/commit/da0afe6f696797527d9f2875323d449e6f5bf4b0))
+
 ## [2.15.0](https://github.com/theodrosyimer/eslint-config/compare/2.14.0...2.15.0) (2026-10-04)
 
 ### ✨ Features
