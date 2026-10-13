@@ -37,6 +37,19 @@
       "default": "./turbo.js"
     }
   },
+  "files": [
+    "CHANGELOG.md",
+    "base.js",
+    "default.js",
+    "index.d.ts",
+    "index.js",
+    "react-web.d.ts",
+    "react-web.js",
+    "react.d.ts",
+    "react.js",
+    "turbo.d.ts",
+    "turbo.js"
+  ],
   "keywords": [
     "javascript",
     "typescript",
