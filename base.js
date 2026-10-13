@@ -4,7 +4,6 @@ import tsParser from '@typescript-eslint/parser'
 import globals from 'globals'
 import eslintConfigPrettier from 'eslint-config-prettier/flat'
 import { importX } from 'eslint-plugin-import-x'
-// import onlyWarn from 'eslint-plugin-only-warn'
 import stylistic from '@stylistic/eslint-plugin'
 
 export const baseConfig = {
@@ -252,7 +251,6 @@ export const baseRecommendedConfig = [
   eslintConfigPrettier,
   {
     plugins: {
-      // 'only-warn': onlyWarn,
       '@stylistic': stylistic,
     },
   },
