@@ -1,6 +1,7 @@
 {
   "name": "@thyi/eslint-config",
   "version": "2.15.0",
+  "type": "module",
   "description": "ESLint Config for JavaScript, Typescript, React, React Native",
   "repository": {
     "type": "git",
