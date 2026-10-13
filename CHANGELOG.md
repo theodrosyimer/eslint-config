@@ -1,5 +1,11 @@
 # Changelog
 
+## [3.0.1](https://github.com/theodrosyimer/eslint-config/compare/3.0.0...3.0.1) (2026-10-13)
+
+### 🐛 Bug Fixes
+
+* **deps:** remove unused eslint-plugin-only-warn and @types/eslint ([9702ab7](https://github.com/theodrosyimer/eslint-config/commit/9702ab705233956df9f7f5daa501754c768ae249))
+
 ## [3.0.0](https://github.com/theodrosyimer/eslint-config/compare/2.15.0...3.0.0) (2026-10-13)
 
 ### ⚠ BREAKING CHANGES
