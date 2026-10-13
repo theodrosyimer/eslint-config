@@ -84,8 +84,8 @@
     "@tanstack/eslint-plugin-query": "^5.104.2",
     "@types/node": "^24.3.1",
     "@types/react": "~19.2.14",
-    "@typescript-eslint/eslint-plugin": "^8.71.1",
-    "@typescript-eslint/parser": "^8.71.1",
+    "@typescript-eslint/eslint-plugin": "^8.71.2",
+    "@typescript-eslint/parser": "^8.71.2",
     "eslint-config-prettier": "^10.1.8",
     "eslint-config-turbo": "^2.9.6",
     "eslint-import-resolver-typescript": "^4.4.4",
@@ -94,7 +94,7 @@
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-native": "^5.0.0",
     "globals": "^16.4.0",
-    "typescript-eslint": "^8.71.1"
+    "typescript-eslint": "^8.71.2"
   },
   "devDependencies": {
     "@release-it/conventional-changelog": "^10.0.6",
