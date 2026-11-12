@@ -1,5 +1,11 @@
 # Changelog
 
+## [3.1.0](https://github.com/theodrosyimer/eslint-config/compare/3.0.1...3.1.0) (2026-11-12)
+
+### ✨ Features
+
+* allow a port interface that only extends a library's interface ([8c62c17](https://github.com/theodrosyimer/eslint-config/commit/8c62c174748ff14e477969e0a3d72b72f1b3c1bc))
+
 ## [3.0.1](https://github.com/theodrosyimer/eslint-config/compare/3.0.0...3.0.1) (2026-10-13)
 
 ### 🐛 Bug Fixes
