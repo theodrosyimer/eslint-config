@@ -1,5 +1,7 @@
 # Changelog
 
+## [3.1.1](https://github.com/theodrosyimer/eslint-config/compare/3.1.0...3.1.1) (2026-11-12)
+
 ## [3.1.0](https://github.com/theodrosyimer/eslint-config/compare/3.0.1...3.1.0) (2026-11-12)
 
 ### ✨ Features
