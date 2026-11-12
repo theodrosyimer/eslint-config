@@ -367,6 +367,7 @@ The tables below list the rules this package sets on top of the presets above.
 | `tests/**/*.ts`, `**/*spec.ts`, `**/*test.ts`             | Jest globals added; `no-explicit-any` lowered to warn; `no-unsafe-argument`, `no-unsafe-assignment`, `no-unsafe-member-access`, `max-lines-per-function`, `max-nested-callbacks` off |
 | `**/*.js`, `**/*.cjs`, `**/*.mjs`                         | Type-aware rules off (`disableTypeChecked`); `import-x` recommended rules re-applied                                                                                                 |
 | `**/infrastructure/**/*.ts`, `**/infrastructure/**/*.tsx` | `@typescript-eslint/consistent-type-assertions` off (`as` allowed for third-party interop)                                                                                           |
+| `**/*.port.ts` | `@typescript-eslint/no-empty-object-type` allows an interface with one `extends` and no member (`allowInterfaces: 'with-single-extends'`): a port that is a library's interface |
 
 > The test override matches only `.ts` files: `*.test.tsx` and `*.spec.tsx` get neither the Jest globals nor the relaxed rules. Outside the test files, no Jest globals are defined.
 

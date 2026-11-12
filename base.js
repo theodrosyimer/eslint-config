@@ -238,6 +238,22 @@ export const baseOverrides = [
       '@typescript-eslint/consistent-type-assertions': 'off',
     },
   },
+  {
+    // A port that IS a library's interface. Every port is an interface named
+    // with the `Port` suffix, so a port that adds nothing to the library's
+    // interface is `interface EventStorePort extends EmmettEventStore<…> {}`:
+    // one `extends` and no member, which the rule otherwise refuses. Its own
+    // option for that shape, by path: only a port file gets it, an interface
+    // with no `extends` is still refused there, and elsewhere a type alias
+    // stays the fix.
+    files: ['**/*.port.ts'],
+    rules: {
+      '@typescript-eslint/no-empty-object-type': [
+        'error',
+        { allowInterfaces: 'with-single-extends' },
+      ],
+    },
+  },
 ]
 
 export const baseRecommendedConfig = [
