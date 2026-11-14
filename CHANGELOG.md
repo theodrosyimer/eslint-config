@@ -1,5 +1,11 @@
 # Changelog
 
+## [3.2.0](https://github.com/theodrosyimer/eslint-config/compare/3.1.1...3.2.0) (2026-11-14)
+
+### ✨ Features
+
+* refuse functions named xxxOf ([99871df](https://github.com/theodrosyimer/eslint-config/commit/99871df97fa4a1da3d3de5e47f56e64e3244328b))
+
 ## [3.1.1](https://github.com/theodrosyimer/eslint-config/compare/3.1.0...3.1.1) (2026-11-12)
 
 ## [3.1.0](https://github.com/theodrosyimer/eslint-config/compare/3.0.1...3.1.0) (2026-11-12)
