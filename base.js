@@ -76,6 +76,25 @@ export const baseRules = {
   ],
   'no-await-in-loop': 'off',
   'no-use-before-define': ['error', { functions: false }],
+  // A function is led by a verb, never named `xxxOf` (the naming-conventions
+  // note, Universal section): `outcomeOf` → `getOutcome`, `requestHashOf` →
+  // `hashRequest`. One selector per place a function gets its name; `valueOf`
+  // stays, since it overrides Object.prototype's.
+  'no-restricted-syntax': [
+    'error',
+    ...[
+      ['FunctionDeclaration', 'id'],
+      ['VariableDeclarator[init.type=/^(ArrowFunctionExpression|FunctionExpression)$/]', 'id'],
+      ['MethodDefinition', 'key'],
+      ['TSMethodSignature', 'key'],
+      ['TSPropertySignature[typeAnnotation.typeAnnotation.type="TSFunctionType"]', 'key'],
+      ['Property[value.type=/^(ArrowFunctionExpression|FunctionExpression)$/]', 'key'],
+      ['PropertyDefinition[value.type=/^(ArrowFunctionExpression|FunctionExpression)$/]', 'key'],
+    ].map(([node, field]) => ({
+      selector: `${node}[${field}.name=/^(?!valueOf$)\\w*[a-z0-9]Of$/]`,
+      message: 'A function is led by a verb, never named xxxOf: outcomeOf → getOutcome.',
+    })),
+  ],
   'preserve-caught-error': [
     'error',
     {

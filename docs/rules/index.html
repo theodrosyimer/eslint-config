@@ -40,10 +40,10 @@ details.options { margin: 4px 0; }
 <main>
 <header>
 <h1>@thyi/eslint-config — rules</h1>
-<p class="muted">179 rules enabled across the configs, 63 auto-fixable. Generated from the configs themselves; every example is linted in CI with the config shown.</p>
+<p class="muted">180 rules enabled across the configs, 63 auto-fixable. Generated from the configs themselves; every example is linted in CI with the config shown.</p>
 <input id="search" type="search" placeholder="Filter rules by name or description" aria-label="Filter rules">
 </header>
-<nav aria-label="Plugins"><a href="#plugin-stylistic">@stylistic (1)</a><a href="#plugin-tanstack-query">@tanstack/query (7)</a><a href="#plugin-typescript-eslint">@typescript-eslint (66)</a><a href="#plugin-eslint">eslint (51)</a><a href="#plugin-import-x">import-x (8)</a><a href="#plugin-react">react (21)</a><a href="#plugin-react-hooks">react-hooks (17)</a><a href="#plugin-react-native">react-native (7)</a><a href="#plugin-turbo">turbo (1)</a></nav>
+<nav aria-label="Plugins"><a href="#plugin-stylistic">@stylistic (1)</a><a href="#plugin-tanstack-query">@tanstack/query (7)</a><a href="#plugin-typescript-eslint">@typescript-eslint (66)</a><a href="#plugin-eslint">eslint (52)</a><a href="#plugin-import-x">import-x (8)</a><a href="#plugin-react">react (21)</a><a href="#plugin-react-hooks">react-hooks (17)</a><a href="#plugin-react-native">react-native (7)</a><a href="#plugin-turbo">turbo (1)</a></nav>
 <section><h2 id="plugin-stylistic">@stylistic</h2>
 <article class="rule" id="stylistic-padding-line-between-statements" data-search="@stylistic/padding-line-between-statements require or disallow padding lines between statements">
 <h3><a href="https://eslint.style/rules/padding-line-between-statements">@stylistic/padding-line-between-statements</a></h3>
@@ -2573,6 +2573,56 @@ delete cache
 <div role="tabpanel" id="no-regex-spaces-correct" aria-labelledby="no-regex-spaces-tab-correct"><p class="file">example.ts</p><pre class="correct"><code>export const pair = /key {3}value/
 </code></pre></div>
 <div role="tabpanel" id="no-regex-spaces-incorrect" aria-labelledby="no-regex-spaces-tab-incorrect" hidden><p class="file">example.ts</p><pre class="incorrect"><code>export const pair = /key   value/
+</code></pre></div>
+</div>
+</article>
+<article class="rule" id="no-restricted-syntax" data-search="no-restricted-syntax disallow specified syntax">
+<h3><a href="https://eslint.org/docs/latest/rules/no-restricted-syntax">no-restricted-syntax</a></h3>
+<p>Disallow specified syntax</p>
+<p><span class="badge">Not auto-fixable</span></p>
+<table><thead><tr><th>Default</th><th>React</th><th>React Web</th><th>Turbo addon</th></tr></thead><tbody><tr><td class="sev sev-error">error</td><td class="sev sev-error">error</td><td class="sev sev-error">error</td><td class="sev sev-error">error</td></tr></tbody></table>
+<details class="options"><summary>Options set by this config</summary><p class="muted">Options (Default, React, React Web, Turbo addon):</p><pre><code>[
+  {
+    &quot;selector&quot;: &quot;FunctionDeclaration[id.name=/^(?!valueOf$)\\w*[a-z0-9]Of$/]&quot;,
+    &quot;message&quot;: &quot;A function is led by a verb, never named xxxOf: outcomeOf → getOutcome.&quot;
+  },
+  {
+    &quot;selector&quot;: &quot;VariableDeclarator[init.type=/^(ArrowFunctionExpression|FunctionExpression)$/][id.name=/^(?!valueOf$)\\w*[a-z0-9]Of$/]&quot;,
+    &quot;message&quot;: &quot;A function is led by a verb, never named xxxOf: outcomeOf → getOutcome.&quot;
+  },
+  {
+    &quot;selector&quot;: &quot;MethodDefinition[key.name=/^(?!valueOf$)\\w*[a-z0-9]Of$/]&quot;,
+    &quot;message&quot;: &quot;A function is led by a verb, never named xxxOf: outcomeOf → getOutcome.&quot;
+  },
+  {
+    &quot;selector&quot;: &quot;TSMethodSignature[key.name=/^(?!valueOf$)\\w*[a-z0-9]Of$/]&quot;,
+    &quot;message&quot;: &quot;A function is led by a verb, never named xxxOf: outcomeOf → getOutcome.&quot;
+  },
+  {
+    &quot;selector&quot;: &quot;TSPropertySignature[typeAnnotation.typeAnnotation.type=\&quot;TSFunctionType\&quot;][key.name=/^(?!valueOf$)\\w*[a-z0-9]Of$/]&quot;,
+    &quot;message&quot;: &quot;A function is led by a verb, never named xxxOf: outcomeOf → getOutcome.&quot;
+  },
+  {
+    &quot;selector&quot;: &quot;Property[value.type=/^(ArrowFunctionExpression|FunctionExpression)$/][key.name=/^(?!valueOf$)\\w*[a-z0-9]Of$/]&quot;,
+    &quot;message&quot;: &quot;A function is led by a verb, never named xxxOf: outcomeOf → getOutcome.&quot;
+  },
+  {
+    &quot;selector&quot;: &quot;PropertyDefinition[value.type=/^(ArrowFunctionExpression|FunctionExpression)$/][key.name=/^(?!valueOf$)\\w*[a-z0-9]Of$/]&quot;,
+    &quot;message&quot;: &quot;A function is led by a verb, never named xxxOf: outcomeOf → getOutcome.&quot;
+  }
+]</code></pre></details>
+<div class="tabs">
+<div role="tablist" aria-label="Examples for no-restricted-syntax">
+<button role="tab" id="no-restricted-syntax-tab-correct" aria-controls="no-restricted-syntax-correct" aria-selected="true">✅ Correct</button>
+<button role="tab" id="no-restricted-syntax-tab-incorrect" aria-controls="no-restricted-syntax-incorrect" aria-selected="false" tabindex="-1">❌ Incorrect</button>
+</div>
+<div role="tabpanel" id="no-restricted-syntax-correct" aria-labelledby="no-restricted-syntax-tab-correct"><p class="file">example.ts</p><pre class="correct"><code>export function getOutcome(score: number): string {
+  return score &gt; 50 ? 'pass' : 'fail'
+}
+</code></pre></div>
+<div role="tabpanel" id="no-restricted-syntax-incorrect" aria-labelledby="no-restricted-syntax-tab-incorrect" hidden><p class="file">example.ts</p><pre class="incorrect"><code>export function outcomeOf(score: number): string {
+  return score &gt; 50 ? 'pass' : 'fail'
+}
 </code></pre></div>
 </div>
 </article>

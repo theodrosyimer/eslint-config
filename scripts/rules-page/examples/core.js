@@ -539,6 +539,17 @@ export const total = price * 2
 `,
   },
 
+  'no-restricted-syntax': {
+    incorrect: `export function outcomeOf(score: number): string {
+  return score > 50 ? 'pass' : 'fail'
+}
+`,
+    correct: `export function getOutcome(score: number): string {
+  return score > 50 ? 'pass' : 'fail'
+}
+`,
+  },
+
   'no-useless-assignment': {
     incorrect: `export function label(count: number): string {
   let text = 'none'
